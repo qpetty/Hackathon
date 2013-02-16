@@ -39,4 +39,10 @@
     [self.delegate finishedInstructions:self];
 }
 
+- (IBAction)useEvernote:(UISwitch *)sender {
+    [[EvernoteSession sharedSession] authenticateWithViewController:self completionHandler:^(NSError *error) {
+        sender.on = NO;
+    }];
+}
+
 @end

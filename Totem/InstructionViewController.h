@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EvernoteSDK.h"
 
 @class InstructionViewController;
 
@@ -14,10 +15,13 @@
 -(void)finishedInstructions:(InstructionViewController *)controller;
 @end
 
-@interface InstructionViewController : UIViewController
+@interface InstructionViewController : UIViewController{
+    
+}
 
 @property (weak, nonatomic) id <InstuctionViewControllerDelegate> delegate;
 
 -(IBAction)back:(id)sender;
+-(IBAction)useEvernote:(UISwitch *)sender;
 
 @end

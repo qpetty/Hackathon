@@ -7,12 +7,30 @@
 //
 
 #import "TotemAppDelegate.h"
+#import "EvernoteSDK.h"
 
 @implementation TotemAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    // Initial development is done on the sandbox service
+    // Change this to BootstrapServerBaseURLStringUS to use the production Evernote service
+    // Change this to BootstrapServerBaseURLStringCN to use the Yinxiang Biji production service
+    // BootstrapServerBaseURLStringSandbox does not support the  Yinxiang Biji service
+    NSString *EVERNOTE_HOST = BootstrapServerBaseURLStringSandbox;
+    
+    // Fill in the consumer key and secret with the values that you received from Evernote
+    // To get an API key, visit http://dev.evernote.com/documentation/cloud/
+    NSString *CONSUMER_KEY = @"qlpetty";
+    NSString *CONSUMER_SECRET = @"f6d39805b6d7025c";
+    
+    // set up Evernote session singleton
+    [EvernoteSession setSharedSessionHost:EVERNOTE_HOST
+                              consumerKey:CONSUMER_KEY
+                           consumerSecret:CONSUMER_SECRET];
+    
     return YES;
 }
 							

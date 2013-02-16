@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "InstructionViewController.h"
+#import "EvernoteSDK.h"
 
 @interface TotemViewController : UIViewController
 

@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EvernoteSDK.h"
 
 @interface DreamViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet UITextView *journal;
 
 - (IBAction)submitDream:(id)sender;
 

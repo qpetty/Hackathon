@@ -36,6 +36,8 @@
 }
 
 - (IBAction)submitDream:(id)sender {
+    EvernoteNoteStore *noteStore = [EvernoteNoteStore noteStore];
+    
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 @end

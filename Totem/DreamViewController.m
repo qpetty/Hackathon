@@ -38,6 +38,12 @@
 - (IBAction)submitDream:(id)sender {
     EvernoteNoteStore *noteStore = [EvernoteNoteStore noteStore];
     
+    [noteStore listNotebooksWithSuccess:^(NSArray *notebooks) {
+        NSLog(@"Notebooks : %@", notebooks);
+    } failure:^(NSError *error) {
+        NSLog(@"fail");
+    }];
+    
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 @end

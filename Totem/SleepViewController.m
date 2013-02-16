@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
     // Enabled monitoring of the sensor
-    [[UIDevice currentDevice] setProximityMonitoringEnabled:YES];
+    //[[UIDevice currentDevice] setProximityMonitoringEnabled:YES];
     
     // Set up an observer for proximity changes
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sensorStateChange:)

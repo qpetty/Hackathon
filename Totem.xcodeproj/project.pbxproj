@@ -18,6 +18,9 @@
 		5EBB670016D017270088C9A7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EBB66FF16D017270088C9A7 /* Default-568h@2x.png */; };
 		5EBB670316D017270088C9A7 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EBB670116D017270088C9A7 /* MainStoryboard.storyboard */; };
 		5EBB670616D017270088C9A7 /* TotemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EBB670516D017270088C9A7 /* TotemViewController.m */; };
+		5EBB670E16D018300088C9A7 /* SleepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EBB670D16D018300088C9A7 /* SleepViewController.m */; };
+		5EBB671116D018B40088C9A7 /* DreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EBB671016D018B40088C9A7 /* DreamViewController.m */; };
+		5EBB671416D01CCD0088C9A7 /* InstructionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EBB671316D01CCD0088C9A7 /* InstructionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,12 @@
 		5EBB670216D017270088C9A7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		5EBB670416D017270088C9A7 /* TotemViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TotemViewController.h; sourceTree = "<group>"; };
 		5EBB670516D017270088C9A7 /* TotemViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TotemViewController.m; sourceTree = "<group>"; };
+		5EBB670C16D018300088C9A7 /* SleepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepViewController.h; sourceTree = "<group>"; };
+		5EBB670D16D018300088C9A7 /* SleepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepViewController.m; sourceTree = "<group>"; };
+		5EBB670F16D018B40088C9A7 /* DreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DreamViewController.h; sourceTree = "<group>"; };
+		5EBB671016D018B40088C9A7 /* DreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DreamViewController.m; sourceTree = "<group>"; };
+		5EBB671216D01CCD0088C9A7 /* InstructionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionViewController.h; sourceTree = "<group>"; };
+		5EBB671316D01CCD0088C9A7 /* InstructionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +95,12 @@
 				5EBB66F816D017260088C9A7 /* TotemAppDelegate.h */,
 				5EBB66F916D017260088C9A7 /* TotemAppDelegate.m */,
 				5EBB670116D017270088C9A7 /* MainStoryboard.storyboard */,
+				5EBB671216D01CCD0088C9A7 /* InstructionViewController.h */,
+				5EBB671316D01CCD0088C9A7 /* InstructionViewController.m */,
+				5EBB670F16D018B40088C9A7 /* DreamViewController.h */,
+				5EBB671016D018B40088C9A7 /* DreamViewController.m */,
+				5EBB670C16D018300088C9A7 /* SleepViewController.h */,
+				5EBB670D16D018300088C9A7 /* SleepViewController.m */,
 				5EBB670416D017270088C9A7 /* TotemViewController.h */,
 				5EBB670516D017270088C9A7 /* TotemViewController.m */,
 				5EBB66F016D017260088C9A7 /* Supporting Files */,
@@ -177,6 +192,9 @@
 				5EBB66F616D017260088C9A7 /* main.m in Sources */,
 				5EBB66FA16D017260088C9A7 /* TotemAppDelegate.m in Sources */,
 				5EBB670616D017270088C9A7 /* TotemViewController.m in Sources */,
+				5EBB670E16D018300088C9A7 /* SleepViewController.m in Sources */,
+				5EBB671116D018B40088C9A7 /* DreamViewController.m in Sources */,
+				5EBB671416D01CCD0088C9A7 /* InstructionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

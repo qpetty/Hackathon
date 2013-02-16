@@ -1,5 +1,5 @@
 //
-//  TotemViewController.h
+//  DreamViewController.h
 //  Totem
 //
 //  Created by Quinton Petty on 2/16/13.
@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "InstructionViewController.h"
 
-@interface TotemViewController : UIViewController
+@interface DreamViewController : UIViewController
 
--(IBAction)showSettings:(id)sender;
+- (IBAction)submitDream:(id)sender;
 
 @end

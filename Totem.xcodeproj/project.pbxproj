@@ -58,6 +58,7 @@
 		5EBB685B16D045730088C9A7 /* ENMLUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EBB683516D045730088C9A7 /* ENMLUtility.m */; };
 		5EBB685C16D045730088C9A7 /* NSData+EvernoteSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EBB683716D045730088C9A7 /* NSData+EvernoteSDK.m */; };
 		5EBB685D16D045730088C9A7 /* NSDate+EDAMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EBB683916D045730088C9A7 /* NSDate+EDAMAdditions.m */; };
+		5EBB685F16D08EFD0088C9A7 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EBB685E16D08EFC0088C9A7 /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -160,6 +161,7 @@
 		5EBB683716D045730088C9A7 /* NSData+EvernoteSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+EvernoteSDK.m"; sourceTree = "<group>"; };
 		5EBB683816D045730088C9A7 /* NSDate+EDAMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+EDAMAdditions.h"; sourceTree = "<group>"; };
 		5EBB683916D045730088C9A7 /* NSDate+EDAMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+EDAMAdditions.m"; sourceTree = "<group>"; };
+		5EBB685E16D08EFC0088C9A7 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EBB685F16D08EFD0088C9A7 /* CoreMotion.framework in Frameworks */,
 				5EBB67E016D040F90088C9A7 /* Security.framework in Frameworks */,
 				5EBB66EA16D017260088C9A7 /* UIKit.framework in Frameworks */,
 				5EBB66EC16D017260088C9A7 /* Foundation.framework in Frameworks */,
@@ -180,7 +183,6 @@
 		5EBB66DD16D017260088C9A7 = {
 			isa = PBXGroup;
 			children = (
-				5EBB67DF16D040F90088C9A7 /* Security.framework */,
 				5EBB66EF16D017260088C9A7 /* Totem */,
 				5EBB66E816D017260088C9A7 /* Frameworks */,
 				5EBB66E716D017260088C9A7 /* Products */,
@@ -198,6 +200,8 @@
 		5EBB66E816D017260088C9A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5EBB685E16D08EFC0088C9A7 /* CoreMotion.framework */,
+				5EBB67DF16D040F90088C9A7 /* Security.framework */,
 				5EBB66E916D017260088C9A7 /* UIKit.framework */,
 				5EBB66EB16D017260088C9A7 /* Foundation.framework */,
 				5EBB66ED16D017260088C9A7 /* CoreGraphics.framework */,

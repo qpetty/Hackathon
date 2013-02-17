@@ -32,6 +32,20 @@
     // Set up an observer for proximity changes
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sensorStateChange:)
                                                  name:@"UIDeviceProximityStateDidChangeNotification" object:nil];
+    motionMangager = [[CMMotionManager alloc] init];
+    
+    motionMangager.accelerometerUpdateInterval = 0.5;
+    
+    _xAxis.text = @"x = ";
+    _yAxis.text = @"y = ";
+    _zAxis.text = @"z = ";
+    
+    [motionMangager startAccelerometerUpdatesToQueue:[[NSOperationQueue alloc] init] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
+        _xAxis.text = [NSString stringWithFormat:@"%@%f", _xAxis, accelerometerData.acceleration.x ];
+        _yAxis.text = [NSString stringWithFormat:@"%@%f", _yAxis, accelerometerData.acceleration.y ];
+        _zAxis.text = [NSString stringWithFormat:@"%@%f", _zAxis, accelerometerData.acceleration.z ];
+    }];
+    
 	// Do any additional setup after loading the view.
 }
 
@@ -41,6 +55,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 - (void)sensorStateChange:(NSNotificationCenter *)notification
 {
     if ([[UIDevice currentDevice] proximityState] == YES)
@@ -48,4 +63,5 @@
     else
         NSLog(@"Device is ~not~ closer to user.");
 }
+
 @end

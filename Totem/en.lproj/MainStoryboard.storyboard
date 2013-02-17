@@ -81,17 +81,43 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="uMc-f6-TO9" kind="push" id="x5g-R0-OQN"/>
+                                    <segue destination="uMc-f6-TO9" kind="push" id="1mI-Q6-3nj"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vf-z6-3yi">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4u-X9-msN">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6l-q6-y7I">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="y6l-q6-y7I" firstAttribute="leading" secondItem="e4u-X9-msN" secondAttribute="leading" type="default" id="8u9-uG-Ju8"/>
+                            <constraint firstItem="e4u-X9-msN" firstAttribute="top" secondItem="cYd-os-FLY" secondAttribute="top" constant="109" id="JbC-fX-asD"/>
+                            <constraint firstItem="e4u-X9-msN" firstAttribute="leading" secondItem="8vf-z6-3yi" secondAttribute="leading" type="default" id="L1w-BM-whF"/>
+                            <constraint firstItem="8vf-z6-3yi" firstAttribute="top" secondItem="cYd-os-FLY" secondAttribute="top" constant="48" id="LPi-NI-0s0"/>
+                            <constraint firstItem="y6l-q6-y7I" firstAttribute="centerX" secondItem="qMF-tl-Rf5" secondAttribute="centerX" type="default" id="NRr-pv-tgQ"/>
+                            <constraint firstItem="y6l-q6-y7I" firstAttribute="top" secondItem="cYd-os-FLY" secondAttribute="top" constant="171" id="YDm-CP-yG4"/>
                             <constraint firstItem="qMF-tl-Rf5" firstAttribute="centerX" secondItem="cYd-os-FLY" secondAttribute="centerX" type="default" id="cNN-sO-Iwm"/>
                             <constraint firstAttribute="bottom" secondItem="qMF-tl-Rf5" secondAttribute="bottom" constant="58" id="jSq-G1-Ehu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IA2-pe-00s"/>
+                    <connections>
+                        <outlet property="xAxis" destination="8vf-z6-3yi" id="Ray-9b-3dh"/>
+                        <outlet property="yAxis" destination="e4u-X9-msN" id="nfc-Qu-dJ4"/>
+                        <outlet property="zAxis" destination="y6l-q6-y7I" id="b0D-MX-5fc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kAA-rx-S60" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -100,7 +126,7 @@
         <!--Dream View Controller-->
         <scene sceneID="K7T-aQ-B0v">
             <objects>
-                <viewController id="uMc-f6-TO9" customClass="DreamViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DreamInput" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uMc-f6-TO9" customClass="DreamViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="r6G-tV-bKl">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -124,7 +150,7 @@
                                     <constraint firstAttribute="height" constant="175" id="4d6-kh-vHi"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -143,7 +169,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="INE-4f-CPh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1335" y="884"/>
+            <point key="canvasLocation" x="1425" y="888"/>
         </scene>
         <!--Instruction View Controller-->
         <scene sceneID="J7Y-mD-Rs3">
@@ -197,37 +223,6 @@
             <point key="canvasLocation" x="497" y="138"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="DreamViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DreamViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="submitDream:"/>
-                <relationship kind="outlet" name="journal" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="InstructionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InstructionViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="back:"/>
-                <relationship kind="action" name="useEvernote:" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="evernoteSwitch" candidateClass="UISwitch"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SleepViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SleepViewController.h"/>
-        </class>
-        <class className="TotemViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TotemViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="showSettings:"/>
-                <relationship kind="action" name="useEvernote:" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="evernoteSwitch" candidateClass="UISwitch"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

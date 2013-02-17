@@ -7,8 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreMotion/CoreMotion.h>
+#import "DreamViewController.h"
+#import "EvernoteSDK.h"
 
-@interface SleepViewController : UIViewController
+@interface SleepViewController : UIViewController{
+    CMMotionManager *motionMangager;
+}
+
+@property (weak, nonatomic) IBOutlet UILabel *xAxis;
+@property (weak, nonatomic) IBOutlet UILabel *yAxis;
+@property (weak, nonatomic) IBOutlet UILabel *zAxis;
 
 - (void)sensorStateChange:(NSNotificationCenter *)notification;
 

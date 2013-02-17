@@ -36,14 +36,25 @@
 }
 
 - (IBAction)submitDream:(id)sender {
-    EvernoteNoteStore *noteStore = [EvernoteNoteStore noteStore];
-    
-    [noteStore listNotebooksWithSuccess:^(NSArray *notebooks) {
-        NSLog(@"Notebooks : %@", notebooks);
-    } failure:^(NSError *error) {
-        NSLog(@"fail");
-    }];
-    
+
+    if ([[EvernoteSession sharedSession] isAuthenticated]) {
+        NSString *notebookgui = (NSString*)[[NSUserDefaults standardUserDefaults] objectForKey:@"Dream Journal"];
+        NSLog(@"%@",notebookgui);
+
+        NSString *content = _journal.text;
+        
+        NSString *toEvernote = [[NSString alloc] initWithFormat:@"<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE en-note SYSTEM \"http://xml.evernote.com/pub/enml2.dtd\"><en-note>\n%@\n</en-note>", content ];
+        
+        EDAMNote *newnote = [[EDAMNote alloc] initWithGuid:nil title:@"First" content:toEvernote contentHash:nil contentLength:toEvernote.length created:nil updated:nil deleted:nil active:YES updateSequenceNum:0 notebookGuid:notebookgui tagGuids:nil resources:nil attributes:nil tagNames:nil];
+        
+        
+        [[EvernoteNoteStore noteStore] createNote:newnote success:^(EDAMNote *note) {
+            NSLog(@"Worked");
+        } failure:^(NSError *error) {
+            NSLog(@"%@",[error localizedDescription]);
+            NSLog(@"no good");
+        }];
+    }
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 @end

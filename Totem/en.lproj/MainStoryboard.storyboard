@@ -177,6 +177,9 @@
                             <constraint firstItem="rVb-Xi-axd" firstAttribute="top" secondItem="8aw-j8-hdb" secondAttribute="top" constant="96" id="t7i-wr-Tdu"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="evernoteSwitch" destination="AtD-2p-KPK" id="EF6-Bz-1wi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6dS-XB-ZKj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

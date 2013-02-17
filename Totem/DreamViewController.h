@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "EvernoteSDK.h"
 
-@interface DreamViewController : UIViewController
+@interface DreamViewController : UIViewController{
+    NSString *notebook;
+}
 
 @property (weak, nonatomic) IBOutlet UITextView *journal;
 

@@ -38,16 +38,26 @@
                                     <segue destination="g4m-07-4hz" kind="modal" identifier="instructions" modalTransitionStyle="flipHorizontal" id="2Ms-tD-TsP"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FpG-Xs-vvg">
+                                <connections>
+                                    <action selector="useEvernote:" destination="2" eventType="valueChanged" id="kmH-IW-JQt"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="bZ6-oz-YOU" secondAttribute="bottom" constant="82" id="Dir-ch-e93"/>
-                            <constraint firstItem="bZ6-oz-YOU" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="GbO-G8-Yzy"/>
+                            <constraint firstAttribute="bottom" secondItem="FpG-Xs-vvg" secondAttribute="bottom" constant="154" id="DtY-rP-063"/>
                             <constraint firstAttribute="bottom" secondItem="2ye-lY-0S2" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="iQ7-72-bId"/>
+                            <constraint firstItem="FpG-Xs-vvg" firstAttribute="centerX" secondItem="bZ6-oz-YOU" secondAttribute="centerX" type="default" id="kmR-W1-UtC"/>
                             <constraint firstAttribute="trailing" secondItem="2ye-lY-0S2" secondAttribute="trailing" constant="27" id="mFB-hW-2dm"/>
+                            <constraint firstItem="FpG-Xs-vvg" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="tEb-YN-3tU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3r6-rw-cm1"/>
+                    <connections>
+                        <outlet property="evernoteSwitch" destination="FpG-Xs-vvg" id="UVm-VA-rai"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
@@ -156,30 +166,13 @@
                                     <action selector="back:" destination="g4m-07-4hz" eventType="touchUpInside" id="Vpp-p9-Eaq"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AtD-2p-KPK">
-                                <connections>
-                                    <action selector="useEvernote:" destination="g4m-07-4hz" eventType="valueChanged" id="mXP-t8-vNf"/>
-                                </connections>
-                            </switch>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Use Evernote" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVb-Xi-axd">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="AtD-2p-KPK" secondAttribute="trailing" constant="43" id="Hea-bb-2G9"/>
                             <constraint firstItem="J8D-Aq-2dG" firstAttribute="top" secondItem="8aw-j8-hdb" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Nco-Na-sd0"/>
-                            <constraint firstItem="rVb-Xi-axd" firstAttribute="top" secondItem="AtD-2p-KPK" secondAttribute="top" type="default" id="aTA-cw-jjp"/>
-                            <constraint firstItem="rVb-Xi-axd" firstAttribute="leading" secondItem="8aw-j8-hdb" secondAttribute="leading" constant="64" id="ltV-Lk-nwg"/>
                             <constraint firstItem="J8D-Aq-2dG" firstAttribute="leading" secondItem="8aw-j8-hdb" secondAttribute="leading" constant="26" id="nuT-Qo-hFE"/>
-                            <constraint firstItem="rVb-Xi-axd" firstAttribute="top" secondItem="8aw-j8-hdb" secondAttribute="top" constant="96" id="t7i-wr-Tdu"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="evernoteSwitch" destination="AtD-2p-KPK" id="EF6-Bz-1wi"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6dS-XB-ZKj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -204,6 +197,37 @@
             <point key="canvasLocation" x="497" y="138"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="DreamViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DreamViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="submitDream:"/>
+                <relationship kind="outlet" name="journal" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="InstructionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InstructionViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="action" name="useEvernote:" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="evernoteSwitch" candidateClass="UISwitch"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="SleepViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SleepViewController.h"/>
+        </class>
+        <class className="TotemViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TotemViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="showSettings:"/>
+                <relationship kind="action" name="useEvernote:" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="evernoteSwitch" candidateClass="UISwitch"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

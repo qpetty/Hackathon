@@ -10,8 +10,16 @@
 #import "InstructionViewController.h"
 #import "EvernoteSDK.h"
 
-@interface TotemViewController : UIViewController
+FOUNDATION_EXPORT NSString * const dream_journal_name;
+
+@interface TotemViewController : UIViewController{
+    EvernoteSession *session;
+}
+
+@property (weak, nonatomic) IBOutlet UISwitch *evernoteSwitch;
 
 -(IBAction)showSettings:(id)sender;
+-(IBAction)useEvernote:(UISwitch *)sender;
+-(NSString*)getGUID;
 
 @end

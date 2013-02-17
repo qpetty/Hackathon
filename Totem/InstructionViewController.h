@@ -9,24 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "EvernoteSDK.h"
 
-//FOUNDATION_EXPORT NSString * const ENBootstrapProfileNameChina;
-
 @class InstructionViewController;
 
 @protocol InstuctionViewControllerDelegate
 -(void)finishedInstructions:(InstructionViewController *)controller;
 @end
 
-@interface InstructionViewController : UIViewController{
-    EvernoteSession *session;
-    NSString *dream_journal_name;
-}
+@interface InstructionViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UISwitch *evernoteSwitch;
 @property (weak, nonatomic) id <InstuctionViewControllerDelegate> delegate;
 
 -(IBAction)back:(id)sender;
--(IBAction)useEvernote:(UISwitch *)sender;
--(NSString*)getGUID;
 
 @end

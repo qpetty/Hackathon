@@ -18,6 +18,7 @@
 @interface InstructionViewController : UIViewController
 
 @property (weak, nonatomic) id <InstuctionViewControllerDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
 
 -(IBAction)back:(id)sender;
 

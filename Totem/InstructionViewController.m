@@ -26,8 +26,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"bg-568@2x.png"]];
     
 	// Do any additional setup after loading the view.
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    [scrollView setContentSize:CGSizeMake(640/2, 3949/2)];
+    scrollView.bounces = NO;
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"howitworks.png"]];
+    [imageView setFrame:CGRectMake(0, 0, 640/2, 3949/2)];
+    
+    [scrollView addSubview:imageView];
+    [self.view addSubview:scrollView];
+    
+    [self.view bringSubviewToFront:_doneButton];
 }
 
 - (void)didReceiveMemoryWarning

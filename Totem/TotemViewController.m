@@ -21,10 +21,15 @@ NSString * const dream_journal_name = @"Totem Dream Journal";
     [super viewDidLoad];
     self.navigationController.navigationBarHidden = YES;
     
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"bg-568@2x.png"]];
+    
     session = [EvernoteSession sharedSession];
     if ([session isAuthenticated]) {
         _evernoteSwitch.on = YES;
     }
+    
+    //[_slide setMinimumTrackImage:[UIImage imageNamed:@"bardark.png"] forState:UIControlStateNormal];
+    
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -59,7 +64,7 @@ NSString * const dream_journal_name = @"Totem Dream Journal";
             [session authenticateWithViewController:self completionHandler:^(NSError *error) {
                 if ([session isAuthenticated]){
                     sender.on = YES;
-                    NSString *something = [self getGUID];
+                    NSString *something = [TotemViewController getGUID];
                 }
                 else
                     sender.on = NO;
@@ -71,7 +76,7 @@ NSString * const dream_journal_name = @"Totem Dream Journal";
     }
 }
 
--(NSString*)getGUID{
++(NSString*)getGUID{
     EvernoteNoteStore *noteStore = [EvernoteNoteStore noteStore];
     
     

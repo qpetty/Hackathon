@@ -8,19 +8,23 @@
 
 #import <UIKit/UIKit.h>
 #import "InstructionViewController.h"
+#import "GlobalVariables.h"
 #import "EvernoteSDK.h"
 
 FOUNDATION_EXPORT NSString * const dream_journal_name;
 
-@interface TotemViewController : UIViewController{
+extern BOOL PUBLISH_TO_EVERNOTE;
+
+@interface TotemViewController : UIViewController <UIAlertViewDelegate> {
     EvernoteSession *session;
 }
 
-@property (weak, nonatomic) IBOutlet UISlider *slide;
 @property (weak, nonatomic) IBOutlet UISwitch *evernoteSwitch;
+@property (weak, nonatomic) IBOutlet UIButton *logoutButton;
 
--(IBAction)showSettings:(id)sender;
--(IBAction)useEvernote:(UISwitch *)sender;
-+(NSString*)getGUID;
+- (IBAction)showSettings:(id)sender;
+- (IBAction)useEvernote:(UISwitch *)sender;
+- (IBAction)logoutOfEvernote:(UIButton*)sender;
++ (NSString*)getGUID;
 
 @end

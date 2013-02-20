@@ -35,6 +35,7 @@
 		03EDC16B16D11C600081C235 /* Non, Je Ne Regrette Rien.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC16A16D11C600081C235 /* Non, Je Ne Regrette Rien.mp3 */; };
 		03EDC16D16D12A0F0081C235 /* totemlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC16C16D12A0F0081C235 /* totemlogo.png */; };
 		03EDC16F16D13ABA0081C235 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03EDC16E16D13AB90081C235 /* MediaPlayer.framework */; };
+		5E3CD9B716D4A63C00206F46 /* GlobalVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3CD9B616D4A63C00206F46 /* GlobalVariables.m */; };
 		5EBB66EA16D017260088C9A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EBB66E916D017260088C9A7 /* UIKit.framework */; };
 		5EBB66EC16D017260088C9A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EBB66EB16D017260088C9A7 /* Foundation.framework */; };
 		5EBB66EE16D017260088C9A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EBB66ED16D017260088C9A7 /* CoreGraphics.framework */; };
@@ -115,6 +116,8 @@
 		03EDC16A16D11C600081C235 /* Non, Je Ne Regrette Rien.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Non, Je Ne Regrette Rien.mp3"; sourceTree = "<group>"; };
 		03EDC16C16D12A0F0081C235 /* totemlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = totemlogo.png; sourceTree = "<group>"; };
 		03EDC16E16D13AB90081C235 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		5E3CD9B516D4A63C00206F46 /* GlobalVariables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalVariables.h; sourceTree = "<group>"; };
+		5E3CD9B616D4A63C00206F46 /* GlobalVariables.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalVariables.m; sourceTree = "<group>"; };
 		5EBB66E616D017260088C9A7 /* Totem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Totem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EBB66E916D017260088C9A7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5EBB66EB16D017260088C9A7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -277,6 +280,8 @@
 				5EBB670D16D018300088C9A7 /* SleepViewController.m */,
 				5EBB670416D017270088C9A7 /* TotemViewController.h */,
 				5EBB670516D017270088C9A7 /* TotemViewController.m */,
+				5E3CD9B516D4A63C00206F46 /* GlobalVariables.h */,
+				5E3CD9B616D4A63C00206F46 /* GlobalVariables.m */,
 				5EBB671516D040E20088C9A7 /* External */,
 				5EBB66F016D017260088C9A7 /* Supporting Files */,
 			);
@@ -631,6 +636,7 @@
 				5EBB685B16D045730088C9A7 /* ENMLUtility.m in Sources */,
 				5EBB685C16D045730088C9A7 /* NSData+EvernoteSDK.m in Sources */,
 				5EBB685D16D045730088C9A7 /* NSDate+EDAMAdditions.m in Sources */,
+				5E3CD9B716D4A63C00206F46 /* GlobalVariables.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

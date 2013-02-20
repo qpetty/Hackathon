@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "EvernoteSDK.h"
 #import "TotemViewController.h"
+#import "GlobalVariables.h"
 
 @interface DreamViewController : UIViewController <UITextViewDelegate>
 {
@@ -23,4 +24,6 @@
 - (IBAction)submitDream:(id)sender;
 //- (BOOL)textFieldShouldReturn:(UITextField *)textField;
 + (void)addNote:(NSString *)notebookgui title:(NSString *)title content:(NSString *)toEvernote;
++ (void)getNotebookAndAddNote:(NSString*)title content:(NSString*)toEvernote;
++ (void)createNotebookWithNote:(NSString*)title content:(NSString*)toEvernote;
 @end

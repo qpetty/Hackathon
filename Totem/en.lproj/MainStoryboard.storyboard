@@ -74,6 +74,26 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Giz-h3-GOV">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="Jx7-ZF-Bi0"/>
+                                    <constraint firstAttribute="height" constant="44" id="SrJ-LZ-DEe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Logout" backgroundImage="buttonsleepnotpressed.png">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" backgroundImage="buttonsleeppressed.png">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutOfEvernote:" destination="2" eventType="touchUpInside" id="kOu-CK-vmZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -85,8 +105,10 @@
                             <constraint firstAttribute="trailing" secondItem="bbW-ta-6Kl" secondAttribute="trailing" constant="20" type="user" id="HEZ-xO-TaS"/>
                             <constraint firstItem="6xY-J7-xJC" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="80" type="user" id="P2o-Iq-XKf"/>
                             <constraint firstItem="bbW-ta-6Kl" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="QDQ-va-GJS"/>
+                            <constraint firstItem="Giz-h3-GOV" firstAttribute="centerY" secondItem="FpG-Xs-vvg" secondAttribute="centerY" type="default" id="QhW-dz-tSu"/>
                             <constraint firstItem="7ak-b2-Pca" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" type="user" id="Rrj-Fk-6pN"/>
                             <constraint firstAttribute="centerX" secondItem="FpG-Xs-vvg" secondAttribute="centerX" type="user" id="S1D-dK-r7o"/>
+                            <constraint firstItem="Giz-h3-GOV" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="WTF-QE-Z97"/>
                             <constraint firstItem="bZ6-oz-YOU" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="80" type="user" id="eIW-GD-Zk7"/>
                             <constraint firstAttribute="centerX" secondItem="6xY-J7-xJC" secondAttribute="centerX" type="user" id="hH9-Ka-Scn"/>
                             <constraint firstAttribute="trailing" secondItem="bZ6-oz-YOU" secondAttribute="trailing" constant="78" type="user" id="l0X-a7-9O0"/>
@@ -102,6 +124,7 @@
                     <navigationItem key="navigationItem" id="3r6-rw-cm1"/>
                     <connections>
                         <outlet property="evernoteSwitch" destination="FpG-Xs-vvg" id="UVm-VA-rai"/>
+                        <outlet property="logoutButton" destination="Giz-h3-GOV" id="fIx-bS-x60"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -335,50 +358,6 @@
         <image name="buttonsleeppressed.png" width="162" height="80"/>
         <image name="justhead.png" width="571" height="498"/>
     </resources>
-    <classes>
-        <class className="DreamViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DreamViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="submitDream:"/>
-                <relationship kind="outlet" name="journal" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="InstructionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InstructionViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="back:"/>
-                <relationship kind="outlet" name="doneButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="MPVolumeView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MPVolumeView.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SleepViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SleepViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="wakeUp"/>
-                <relationship kind="outlet" name="queueSize" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="rootSumSquare" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="slide" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="xAxis" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="yAxis" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="zAxis" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="TotemViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TotemViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="showSettings:"/>
-                <relationship kind="action" name="useEvernote:" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="evernoteSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="slide" candidateClass="UISlider"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

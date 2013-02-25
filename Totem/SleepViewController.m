@@ -30,17 +30,17 @@ double const measurements_per_sec = 4;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"sleep-586@2x.png"]];
     
-    averageAccel = [[NSMutableArray alloc] init];
-    motionMangager = [[CMMotionManager alloc] init];
-    queue = [[NSMutableArray alloc] init];
-    
+    //Initialize sound
     NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"Non, Je Ne Regrette Rien" ofType:@"mp3"];
     NSURL *newURL = [[NSURL alloc] initFileURLWithPath: soundFilePath];
-    
     player = [[AVAudioPlayer alloc] initWithContentsOfURL: newURL error: nil];
     
+    //Set threshold
     threshold = 0.01;
+    
     // Enabled monitoring of the sensor
     [[UIDevice currentDevice] setProximityMonitoringEnabled:YES];
 
@@ -48,66 +48,27 @@ double const measurements_per_sec = 4;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sensorStateChange:)
                                                  name:@"UIDeviceProximityStateDidChangeNotification" object:nil];
     
-    self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"sleep-586@2x.png"]];
-    
+    motionMangager = [[CMMotionManager alloc] init];
     
     motionMangager.deviceMotionUpdateInterval = 1.0f / measurements_per_sec;
-    NSLog(@"%lf", motionMangager.deviceMotionUpdateInterval);
-    timer = 0;
-    [motionMangager startDeviceMotionUpdatesToQueue:[[NSOperationQueue alloc] init] withHandler:^(CMDeviceMotion *motion, NSError *error) {
-        
-        timer++;
-        
-        //if(timer > measurements_per_sec * 60 * 60){
-        if(timer > 0){
-            double scale = 1000;
-            double xsqr = motion.userAcceleration.x * motion.userAcceleration.x * scale;
-            double ysqr = motion.userAcceleration.y * motion.userAcceleration.y * scale;
-            double zsqr = motion.userAcceleration.z * motion.userAcceleration.z * scale;
-            
-            double xyz = sqrt(xsqr * ysqr * zsqr);
-            
-            [averageAccel addObject:[NSNumber numberWithDouble:xyz]];
-            if (averageAccel.count >= seconds_to_average / motionMangager.deviceMotionUpdateInterval){
-                double average = 0;
-                
-                for (NSNumber *num in averageAccel)
-                    average += [num doubleValue];
-            
-                //[queue addObject:[NSNumber numberWithDouble:average / averageAccel.count]];
-                average = average / averageAccel.count;
-                if(average > threshold){
-                    [timeStamps addObject:[NSNumber numberWithFloat:timer]];
-                    if (timeStamps.count < 3)
-                        timer = 0;
-                    else
-                        [self wakeUp];
-                }
-                averageAccel = [[NSMutableArray alloc] init];
-            }
-            
-            //if (queue.count > queue_size){
-                //[queue removeObjectAtIndex:0];
-                
-                //Full queue
-            
-            //}
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                _xAxis.text = [NSString stringWithFormat:@"%@%f", @"x= ", motion.userAcceleration.x ];
-                _yAxis.text = [NSString stringWithFormat:@"%@%f", @"y= ", motion.userAcceleration.y ];
-                _zAxis.text = [NSString stringWithFormat:@"%@%f", @"z= ", motion.userAcceleration.z ];
-
-                _rootSumSquare.text = [NSString stringWithFormat:@"%@%f", @"root sum square= ", xyz];
-                _queueSize.text = [NSString stringWithFormat:@"%d", averageAccel.count];
-                NSLog(@"%@", _yAxis.text);
-            });
-            
-        }
-    }];
+    NSLog(@"Motion Update Interval: %lf", motionMangager.deviceMotionUpdateInterval);
     
-	// Do any additional setup after loading the view.
+    averageAccel = [[TriggeredArray alloc] initWithTriggerIndex:seconds_to_average / motionMangager.deviceMotionUpdateInterval];
+    averageAccel.delegate = self;
+    
+    NSLog(@"Acceleration Trigger: %lf", seconds_to_average / motionMangager.deviceMotionUpdateInterval);
+    queue = [[TriggeredArray alloc] init];
+    
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(listenForMovement:) userInfo:nil repeats:NO];
+    allPoints = [[NSMutableArray alloc] init];
+    
+    //[allPoints addObject:[NSNumber numberWithDouble:15]];
+    //[allPoints addObject:[NSNumber numberWithDouble:12]];
+    
+    [self initalizeGraph];
+    
+    // Do any additional setup after loading the view.
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -126,7 +87,7 @@ double const measurements_per_sec = 4;
     // Dispose of any resources that can be recreated.
 }
 
--(void)viewDidDisappear:(BOOL)animated{
+-(void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:YES];
     [motionMangager stopDeviceMotionUpdates];
     [player stop];
@@ -134,8 +95,14 @@ double const measurements_per_sec = 4;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)sensorStateChange:(NSNotificationCenter *)notification
-{
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"toDream"]) {
+        [[segue destinationViewController] setGraphView:_graphView];
+        [[segue destinationViewController] setAccelData:allPoints];
+    }
+}
+
+- (void)sensorStateChange:(NSNotificationCenter *)notification {
     if ([[UIDevice currentDevice] proximityState] == YES)
         NSLog(@"Device is close to user.");
     else
@@ -158,5 +125,131 @@ double const measurements_per_sec = 4;
     [player stop];
     player.currentTime = 0;
 }
+
+- (void)listenForMovement:(SleepViewController*)view {
+    [motionMangager startDeviceMotionUpdatesToQueue:[[NSOperationQueue alloc] init] withHandler:^(CMDeviceMotion *motion, NSError *error) {
+        double scale = 1000;
+        double xsqr = motion.userAcceleration.x * motion.userAcceleration.x * scale;
+        double ysqr = motion.userAcceleration.y * motion.userAcceleration.y * scale;
+        double zsqr = motion.userAcceleration.z * motion.userAcceleration.z * scale;
+        
+        double xyz = sqrt(xsqr * ysqr * zsqr);
+        
+        [averageAccel addObject:[NSNumber numberWithDouble:xyz]];
+        
+        //if (queue.count > queue_size){
+        //[queue removeObjectAtIndex:0];
+        
+        //Full queue
+        
+        //}
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            _xAxis.text = [NSString stringWithFormat:@"%@%f", @"x= ", motion.userAcceleration.x ];
+            _yAxis.text = [NSString stringWithFormat:@"%@%f", @"y= ", motion.userAcceleration.y ];
+            _zAxis.text = [NSString stringWithFormat:@"%@%f", @"z= ", motion.userAcceleration.z ];
+            
+            _rootSumSquare.text = [NSString stringWithFormat:@"%@%f", @"root sum square= ", xyz];
+            //NSLog(@"%@", _yAxis.text);
+        });
+    }];
+}
+             
+-(void)arrayHasBeenTriggered:(TriggeredArray *)triggerEmptyArray hitTriggerIndex:(NSMutableArray *)array{
+    if (triggerEmptyArray == averageAccel) {
+        double average = 0;
+        
+        for (NSNumber *num in array)
+            average += [num doubleValue];
+        
+        average = average / array.count;
+        //[queue addObject:[NSNumber numberWithDouble:average]];
+        NSLog(@"Computed Average: %f", average);
+        
+        [allPoints addObject:[NSNumber numberWithDouble:average]];
+        
+        //[allPoints addObject:[NSNumber numberWithInteger:10]];
+        
+        NSLog(@"Supposed to reload data");
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self reloadGraph];
+            _queueSize.text = [NSString stringWithFormat:@"Last Average Computed: %f", average];
+        });
+        
+//        if(average > threshold){
+//            [timeStamps addObject:[NSNumber numberWithFloat:timer]];
+//            if (timeStamps.count < 3)
+//                timer = 0;
+//            else
+//                [self wakeUp];
+    }
+    else if (triggerEmptyArray == queue){
+        ;
+    }
+}
+
+- (void)initalizeGraph{
+    [_graphView setBackgroundColor:[UIColor lightGrayColor]];
+    CPTXYGraph *graph = [[CPTXYGraph alloc] initWithFrame:_graphView.bounds];
+    _graphView.hostedGraph = graph;
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"MM-dd";
+    [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
+    
+    graph.title = [NSString stringWithFormat:@"All Accelerometer Data from %@", [dateFormatter stringFromDate:[NSDate date]]];
+    graph.plotAreaFrame.masksToBorder = NO;
+    graph.paddingLeft = 30;
+    
+    
+//    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace*)graph.defaultPlotSpace;
+//    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(0) length:CPTDecimalFromDouble(15)];
+//    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(0) length:CPTDecimalFromDouble(20)];
+    
+    CPTXYAxisSet *axisSet = (CPTXYAxisSet*)_graphView.hostedGraph.axisSet;
+    CPTAxis *yAxis = axisSet.yAxis;
+    //yAxis.title = @"Accelerometer Magnitude";
+    //yAxis.minorTickLength = 0.0001;
+    
+    CPTScatterPlot *mainPlot = [[CPTScatterPlot alloc] init];
+    mainPlot.dataSource = self;
+    mainPlot.plotSymbol = [CPTPlotSymbol hexagonPlotSymbol];
+    [graph addPlot:mainPlot];
+    
+}
+
+- (void)reloadGraph{
+    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace*)_graphView.hostedGraph.defaultPlotSpace;
+    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(0) length:CPTDecimalFromInteger(allPoints.count)];
+    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(0)
+                                     length:CPTDecimalFromFloat([[allPoints valueForKeyPath:@"@max.self"] floatValue] * 1.1f)];
+    
+    [_graphView.hostedGraph reloadData];
+}
+
+#pragma mark - CPTPlotDataSource methods
+
+-(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot {
+    NSLog(@"Called numberOfRecordsForPlot and returned %d", allPoints.count);
+    return allPoints.count;
+}
+
+-(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index {
+    if (fieldEnum == CPTScatterPlotFieldX) {
+        NSLog(@"Called numberForPlot for X and returned %d", index);
+        return [NSNumber numberWithInteger:index];
+    }
+    else if (fieldEnum == CPTScatterPlotFieldY){
+        NSLog(@"Called numberForPlot for Y and returned %@", [allPoints objectAtIndex:index]);
+        return [allPoints objectAtIndex:index];
+    }
+    return nil;
+}
+
+//-(CPTLayer *)dataLabelForPlot:(CPTPlot *)plot recordIndex:(NSUInteger)index {
+//    return nil;
+//}
 
 @end

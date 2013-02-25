@@ -157,7 +157,7 @@
                                 </state>
                                 <state key="selected" backgroundImage="buttonimawakepressed.png"/>
                                 <connections>
-                                    <segue destination="uMc-f6-TO9" kind="push" id="1mI-Q6-3nj"/>
+                                    <segue destination="uMc-f6-TO9" kind="push" identifier="toDream" id="1mI-Q6-3nj"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vf-z6-3yi">
@@ -188,7 +188,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VIg-Wa-xEE">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="68" id="626-m9-VCZ"/>
-                                    <constraint firstAttribute="height" constant="44" id="uFr-wK-OFR"/>
+                                    <constraint firstAttribute="height" constant="44" type="user" id="uFr-wK-OFR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" backgroundImage="buttonimawakenotpressed.png">
@@ -217,32 +217,40 @@
                                     <constraint firstAttribute="height" constant="27" type="user" id="oUS-Rj-ddg"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KCy-Z5-ka2" customClass="CPTGraphHostingView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="IW0-qR-d35" secondAttribute="centerX" type="user" id="05L-aj-NFb"/>
-                            <constraint firstItem="IW0-qR-d35" firstAttribute="top" secondItem="jml-a8-hdQ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="1mF-fK-qcU"/>
+                            <constraint firstItem="YjH-fc-PQQ" firstAttribute="leading" secondItem="cYd-os-FLY" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="1DS-gX-Kfq"/>
+                            <constraint firstItem="IW0-qR-d35" firstAttribute="top" secondItem="jml-a8-hdQ" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="1mF-fK-qcU"/>
                             <constraint firstItem="VIg-Wa-xEE" firstAttribute="bottom" secondItem="jml-a8-hdQ" secondAttribute="bottom" type="user" id="2Yh-jI-NDO"/>
-                            <constraint firstItem="y6l-q6-y7I" firstAttribute="leading" secondItem="YjH-fc-PQQ" secondAttribute="leading" type="default" id="Bp8-MM-2Vp"/>
-                            <constraint firstItem="8vf-z6-3yi" firstAttribute="leading" secondItem="cYd-os-FLY" secondAttribute="leading" constant="35" id="Dwo-OK-NGU"/>
-                            <constraint firstItem="y6l-q6-y7I" firstAttribute="leading" secondItem="e4u-X9-msN" secondAttribute="leading" type="default" id="TC9-nU-stk"/>
+                            <constraint firstItem="8vf-z6-3yi" firstAttribute="leading" secondItem="cYd-os-FLY" secondAttribute="leading" constant="35" id="7pm-ic-Skb"/>
+                            <constraint firstItem="y6l-q6-y7I" firstAttribute="leading" secondItem="jml-a8-hdQ" secondAttribute="leading" type="default" id="UgT-LR-586"/>
+                            <constraint firstItem="5Js-WT-YH9" firstAttribute="leading" secondItem="cYd-os-FLY" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="VUC-WH-3AM"/>
+                            <constraint firstItem="y6l-q6-y7I" firstAttribute="leading" secondItem="e4u-X9-msN" secondAttribute="leading" type="default" id="VWT-ay-wa9"/>
                             <constraint firstItem="e4u-X9-msN" firstAttribute="top" secondItem="8vf-z6-3yi" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Wv7-Wm-zXI"/>
-                            <constraint firstItem="YjH-fc-PQQ" firstAttribute="top" secondItem="y6l-q6-y7I" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="bia-lc-I0d"/>
+                            <constraint firstItem="KCy-Z5-ka2" firstAttribute="leading" secondItem="cYd-os-FLY" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="dMX-mI-iiO"/>
                             <constraint firstItem="5Js-WT-YH9" firstAttribute="top" secondItem="YjH-fc-PQQ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="f80-zC-SpE"/>
                             <constraint firstAttribute="centerX" secondItem="qMF-tl-Rf5" secondAttribute="centerX" type="user" id="fAn-4M-oOW"/>
                             <constraint firstItem="y6l-q6-y7I" firstAttribute="top" secondItem="e4u-X9-msN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="hI2-wR-xfK"/>
-                            <constraint firstItem="YjH-fc-PQQ" firstAttribute="leading" secondItem="5Js-WT-YH9" secondAttribute="leading" type="default" id="hsu-be-VrL"/>
+                            <constraint firstItem="KCy-Z5-ka2" firstAttribute="top" secondItem="cYd-os-FLY" secondAttribute="top" type="default" id="hrB-Ab-VZx"/>
                             <constraint firstItem="IW0-qR-d35" firstAttribute="leading" secondItem="cYd-os-FLY" secondAttribute="leading" constant="60" id="hwv-ja-qR2"/>
+                            <constraint firstAttribute="trailing" secondItem="KCy-Z5-ka2" secondAttribute="trailing" constant="30" id="iDD-w0-ue8"/>
+                            <constraint firstItem="VIg-Wa-xEE" firstAttribute="top" secondItem="5Js-WT-YH9" secondAttribute="bottom" constant="3" type="user" id="jEY-2c-zPt"/>
                             <constraint firstAttribute="bottom" secondItem="qMF-tl-Rf5" secondAttribute="bottom" constant="28" type="user" id="jGN-Ru-hjp"/>
                             <constraint firstItem="8vf-z6-3yi" firstAttribute="top" secondItem="cYd-os-FLY" secondAttribute="top" constant="48" id="kZd-MF-FGf"/>
-                            <constraint firstItem="5Js-WT-YH9" firstAttribute="leading" secondItem="jml-a8-hdQ" secondAttribute="leading" type="default" id="mrq-Ow-inV"/>
+                            <constraint firstAttribute="bottom" secondItem="KCy-Z5-ka2" secondAttribute="bottom" constant="285" id="lPZ-Gk-6FW"/>
+                            <constraint firstItem="8vf-z6-3yi" firstAttribute="leading" secondItem="e4u-X9-msN" secondAttribute="leading" type="default" id="n0U-ZM-ZU0"/>
                             <constraint firstItem="qMF-tl-Rf5" firstAttribute="top" secondItem="IW0-qR-d35" secondAttribute="bottom" constant="27" type="user" id="odw-rK-zGl"/>
                             <constraint firstAttribute="trailing" secondItem="VIg-Wa-xEE" secondAttribute="trailing" constant="19" id="pJO-eQ-rzj"/>
-                            <constraint firstItem="8vf-z6-3yi" firstAttribute="leading" secondItem="e4u-X9-msN" secondAttribute="leading" type="default" id="wc2-RJ-8Bw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IA2-pe-00s"/>
                     <connections>
+                        <outlet property="graphView" destination="KCy-Z5-ka2" id="whA-Ii-eLo"/>
                         <outlet property="queueSize" destination="5Js-WT-YH9" id="Syo-be-AdZ"/>
                         <outlet property="rootSumSquare" destination="YjH-fc-PQQ" id="sb8-xa-bJq"/>
                         <outlet property="xAxis" destination="8vf-z6-3yi" id="Ray-9b-3dh"/>

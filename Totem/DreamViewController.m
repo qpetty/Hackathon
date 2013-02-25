@@ -34,9 +34,15 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"MM-dd-yyyy";
     [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
+    
     title = [NSString stringWithFormat:@"Dream from %@", [dateFormatter stringFromDate:[NSDate date]]];
     NSLog(@"%@", [dateFormatter stringFromDate:[NSDate date]]);
     _titleLabel.text = title;
+    
+    graphImage = [self imageFromView:_graphView];
+    graphHash = [self hashOfData:graphImage];
+    graphResource = nil;
+    NSLog(@"Hash of Picture: %@", graphHash);
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,6 +62,38 @@
     return YES;
 }
 
+- (NSData *) imageFromView:(UIView *)view {
+    UIGraphicsBeginImageContext(view.frame.size);
+    [[view layer] renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *screenshot = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return UIImagePNGRepresentation(screenshot);
+}
+
+- (NSString*)hashOfData:(NSData*)data{
+    NSString *hash = [[[data md5] description] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSLog(@"First hash: %@", hash);
+    hash = [hash substringWithRange:NSMakeRange(1, [hash length] - 2)];
+    return hash;
+}
+
+-(EDAMResource*)createResource:(NSData*)imageNSData hash:(NSString*)hash{
+    EDAMData * imageData = [[EDAMData alloc] initWithBodyHash:[hash dataUsingEncoding: NSASCIIStringEncoding] size:[imageNSData length] body:imageNSData];
+    
+    
+    // 2) Create an EDAMResourceAttributes object with other important attributes of the file
+    EDAMResourceAttributes *imageAttributes = [[EDAMResourceAttributes alloc] init];
+    [imageAttributes setFileName:@"example.png"];
+    
+    // 3) create an EDAMResource the hold the mime, the data and the attributes
+    EDAMResource *imageResource  = [[EDAMResource alloc] init];
+    [imageResource setMime:@"image/png"];
+    [imageResource setData:imageData];
+    [imageResource setAttributes:imageAttributes];
+    
+    return imageResource;
+}
+
 
 - (IBAction)submitDream:(id)sender {
 
@@ -66,14 +104,21 @@
         notebookgui = (NSString*)[[NSUserDefaults standardUserDefaults] objectForKey:@"Dream Journal"];
         NSLog(@"Notebook from UserDefaults: %@",notebookgui);
 
+        NSString *imageTag = nil;
+        if (graphImage) {
+            imageTag = [NSString stringWithFormat:@"<br/><en-media type=\"image/png\" hash=\"%@\"/>", graphHash];
+            graphResource = [self createResource:graphImage hash:graphHash];
+        }
+        
+        //Create Evernote XML
         NSString *content = _journal.text;
-        NSString *toEvernote = [[NSString alloc] initWithFormat:@"<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE en-note SYSTEM \"http://xml.evernote.com/pub/enml2.dtd\"><en-note>\n%@\n</en-note>", content ];
+        NSString *toEvernote = [[NSString alloc] initWithFormat:@"<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE en-note SYSTEM \"http://xml.evernote.com/pub/enml2.dtd\"><en-note>\n%@%@\n</en-note>", content, imageTag];
         
         [[EvernoteNoteStore noteStore] getNotebookWithGuid:notebookgui success:^(EDAMNotebook *notebook) {
             NSLog(@"Success here %@",notebookgui);
-            [DreamViewController addNote:notebookgui title:title content:toEvernote];
+            [self addNote:notebookgui title:title content:toEvernote];
         } failure:^(NSError *error) {
-            [DreamViewController getNotebookAndAddNote:title content:toEvernote];
+            [self getNotebookAndAddNote:title content:toEvernote];
             //[DreamViewController addNote:notebookgui title:title content:toEvernote];
         }];
         
@@ -82,9 +127,12 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
-+(void)addNote:(NSString *)notebookgui title:(NSString *)title content:(NSString *)toEvernote{
-    EDAMNote *newnote = [[EDAMNote alloc] initWithGuid:nil title:title content:toEvernote contentHash:nil contentLength:toEvernote.length created:(EDAMTimestamp)nil updated:(EDAMTimestamp)nil deleted:(EDAMTimestamp)nil active:YES updateSequenceNum:(EDAMTimestamp)0 notebookGuid:notebookgui tagGuids:nil resources:nil attributes:nil tagNames:nil];
+-(void)addNote:(NSString *)notebookGuiForNote title:(NSString *)noteTitle content:(NSString *)toEvernote{
+    EDAMNote *newnote = [[EDAMNote alloc] initWithGuid:nil title:noteTitle content:toEvernote contentHash:nil contentLength:toEvernote.length created:(EDAMTimestamp)nil updated:(EDAMTimestamp)nil deleted:(EDAMTimestamp)nil active:YES updateSequenceNum:(EDAMTimestamp)0 notebookGuid:notebookGuiForNote tagGuids:nil resources:nil attributes:nil tagNames:nil];
     
+    if (graphResource) {
+        [newnote setResources:[[NSMutableArray alloc] initWithObjects:graphResource, nil]];
+    }
     
     [[EvernoteNoteStore noteStore] createNote:newnote success:^(EDAMNote *note) {
         NSLog(@"Worked");
@@ -94,7 +142,7 @@
     }];
 }
 
-+(void)getNotebookAndAddNote:(NSString*)title content:(NSString*)toEvernote{
+-(void)getNotebookAndAddNote:(NSString*)noteTitle content:(NSString*)toEvernote{
     EvernoteNoteStore *noteStore = [EvernoteNoteStore noteStore];
     
     [noteStore listNotebooksWithSuccess:^(NSArray *notebooks) {
@@ -118,10 +166,10 @@
             [defaults setObject:curbnb.guid forKey:@"Dream Journal"];
             [defaults synchronize];
             
-            [DreamViewController addNote:curbnb.guid title:title content:toEvernote];
+            [self addNote:curbnb.guid title:noteTitle content:toEvernote];
         }
         else{
-            [DreamViewController createNotebookWithNote:title content:toEvernote];
+            [self createNotebookWithNote:noteTitle content:toEvernote];
         }
         NSLog(@"Finished");
     } failure:^(NSError *error) {
@@ -129,16 +177,16 @@
     }];
 }
 
-+(void)createNotebookWithNote:(NSString*)title content:(NSString*)toEvernote{
+-(void)createNotebookWithNote:(NSString*)noteTitle content:(NSString*)toEvernote{
     EvernoteNoteStore *noteStore = [EvernoteNoteStore noteStore];
     
-    [noteStore createNotebook:[[EDAMNotebook alloc] initWithGuid:nil name:dream_journal_name updateSequenceNum:(EDAMTimestamp)0 defaultNotebook:NO serviceCreated:(EDAMTimestamp)nil serviceUpdated:(EDAMTimestamp)nil publishing:nil published:NO stack:nil sharedNotebookIds:nil sharedNotebooks:nil businessNotebook:nil contact:nil restrictions:nil] success:^(EDAMNotebook *notebook) {
+    [noteStore createNotebook:[[EDAMNotebook alloc] initWithGuid:nil name:dream_journal_name updateSequenceNum:(EDAMTimestamp)0 defaultNotebook:NO serviceCreated:(EDAMTimestamp)nil serviceUpdated:(EDAMTimestamp)nil publishing:nil published:NO stack:nil sharedNotebookIds:nil sharedNotebooks:nil businessNotebook:nil contact:nil restrictions:nil] success:^(EDAMNotebook *newNotebook) {
         NSLog(@"Worked");
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:notebook.guid forKey:@"Dream Journal"];
+        [defaults setObject:newNotebook.guid forKey:@"Dream Journal"];
         [defaults synchronize];
         
-        [DreamViewController addNote:notebook.guid title:title content:toEvernote];
+        [self addNote:newNotebook.guid title:noteTitle content:toEvernote];
         
     } failure:^(NSError *error) {
         NSLog(@"Didn't work");

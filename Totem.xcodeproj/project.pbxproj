@@ -36,6 +36,9 @@
 		03EDC16D16D12A0F0081C235 /* totemlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC16C16D12A0F0081C235 /* totemlogo.png */; };
 		03EDC16F16D13ABA0081C235 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03EDC16E16D13AB90081C235 /* MediaPlayer.framework */; };
 		5E3CD9B716D4A63C00206F46 /* GlobalVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3CD9B616D4A63C00206F46 /* GlobalVariables.m */; };
+		5E3ECEDC16D9DCB50014BAF4 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E3ECED916D9DC220014BAF4 /* libCorePlot-CocoaTouch.a */; };
+		5E3ECEDE16D9DE5C0014BAF4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E3ECEDD16D9DE5C0014BAF4 /* QuartzCore.framework */; };
+		5E5CFA5A16D7621E00095A86 /* TriggeredArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5CFA5916D7621E00095A86 /* TriggeredArray.m */; };
 		5EBB66EA16D017260088C9A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EBB66E916D017260088C9A7 /* UIKit.framework */; };
 		5EBB66EC16D017260088C9A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EBB66EB16D017260088C9A7 /* Foundation.framework */; };
 		5EBB66EE16D017260088C9A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EBB66ED16D017260088C9A7 /* CoreGraphics.framework */; };
@@ -87,6 +90,23 @@
 		5EBB685F16D08EFD0088C9A7 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EBB685E16D08EFC0088C9A7 /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5E3ECED816D9DC220014BAF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E3ECECB16D9DC160014BAF4 /* CorePlot-CocoaTouch.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BC9B83470FB8A0A40035D8DA;
+			remoteInfo = "CorePlot-CocoaTouch";
+		};
+		5E3ECEDA16D9DC600014BAF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E3ECECB16D9DC160014BAF4 /* CorePlot-CocoaTouch.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BC9B83460FB8A0A40035D8DA;
+			remoteInfo = "CorePlot-CocoaTouch";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		03EDC13116D094570081C235 /* totemicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = totemicon.png; path = ../totemicon.png; sourceTree = "<group>"; };
 		03EDC13316D094620081C235 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
@@ -118,6 +138,10 @@
 		03EDC16E16D13AB90081C235 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		5E3CD9B516D4A63C00206F46 /* GlobalVariables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalVariables.h; sourceTree = "<group>"; };
 		5E3CD9B616D4A63C00206F46 /* GlobalVariables.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalVariables.m; sourceTree = "<group>"; };
+		5E3ECECB16D9DC160014BAF4 /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "CorePlot_1.1/Source/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = "<group>"; };
+		5E3ECEDD16D9DE5C0014BAF4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5E5CFA5816D7621E00095A86 /* TriggeredArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriggeredArray.h; sourceTree = "<group>"; };
+		5E5CFA5916D7621E00095A86 /* TriggeredArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriggeredArray.m; sourceTree = "<group>"; };
 		5EBB66E616D017260088C9A7 /* Totem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Totem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EBB66E916D017260088C9A7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5EBB66EB16D017260088C9A7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -222,6 +246,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E3ECEDE16D9DE5C0014BAF4 /* QuartzCore.framework in Frameworks */,
+				5E3ECEDC16D9DCB50014BAF4 /* libCorePlot-CocoaTouch.a in Frameworks */,
 				03EDC16F16D13ABA0081C235 /* MediaPlayer.framework in Frameworks */,
 				03EDC16916D11BA10081C235 /* AVFoundation.framework in Frameworks */,
 				5EBB685F16D08EFD0088C9A7 /* CoreMotion.framework in Frameworks */,
@@ -235,6 +261,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E3ECED316D9DC220014BAF4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5E3ECED916D9DC220014BAF4 /* libCorePlot-CocoaTouch.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		5EBB66DD16D017260088C9A7 = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +289,7 @@
 		5EBB66E816D017260088C9A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5E3ECEDD16D9DE5C0014BAF4 /* QuartzCore.framework */,
 				03EDC16E16D13AB90081C235 /* MediaPlayer.framework */,
 				03EDC16816D11BA10081C235 /* AVFoundation.framework */,
 				5EBB685E16D08EFC0088C9A7 /* CoreMotion.framework */,
@@ -278,6 +313,8 @@
 				5EBB671016D018B40088C9A7 /* DreamViewController.m */,
 				5EBB670C16D018300088C9A7 /* SleepViewController.h */,
 				5EBB670D16D018300088C9A7 /* SleepViewController.m */,
+				5E5CFA5816D7621E00095A86 /* TriggeredArray.h */,
+				5E5CFA5916D7621E00095A86 /* TriggeredArray.m */,
 				5EBB670416D017270088C9A7 /* TotemViewController.h */,
 				5EBB670516D017270088C9A7 /* TotemViewController.m */,
 				5E3CD9B516D4A63C00206F46 /* GlobalVariables.h */,
@@ -328,6 +365,7 @@
 		5EBB671516D040E20088C9A7 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				5E3ECECB16D9DC160014BAF4 /* CorePlot-CocoaTouch.xcodeproj */,
 				5EBB67E116D045720088C9A7 /* evernote-sdk-ios */,
 			);
 			path = External;
@@ -518,6 +556,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5E3ECEDB16D9DC600014BAF4 /* PBXTargetDependency */,
 			);
 			name = Totem;
 			productName = Totem;
@@ -544,12 +583,28 @@
 			mainGroup = 5EBB66DD16D017260088C9A7;
 			productRefGroup = 5EBB66E716D017260088C9A7 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 5E3ECED316D9DC220014BAF4 /* Products */;
+					ProjectRef = 5E3ECECB16D9DC160014BAF4 /* CorePlot-CocoaTouch.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				5EBB66E516D017260088C9A7 /* Totem */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		5E3ECED916D9DC220014BAF4 /* libCorePlot-CocoaTouch.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libCorePlot-CocoaTouch.a";
+			remoteRef = 5E3ECED816D9DC220014BAF4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5EBB66E416D017260088C9A7 /* Resources */ = {
@@ -637,10 +692,19 @@
 				5EBB685C16D045730088C9A7 /* NSData+EvernoteSDK.m in Sources */,
 				5EBB685D16D045730088C9A7 /* NSDate+EDAMAdditions.m in Sources */,
 				5E3CD9B716D4A63C00206F46 /* GlobalVariables.m in Sources */,
+				5E5CFA5A16D7621E00095A86 /* TriggeredArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5E3ECEDB16D9DC600014BAF4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CorePlot-CocoaTouch";
+			targetProxy = 5E3ECEDA16D9DC600014BAF4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5EBB66F216D017260088C9A7 /* InfoPlist.strings */ = {
@@ -729,13 +793,17 @@
 		5EBB670A16D017270088C9A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"Totem/External/Core_Plot_1.1/Source/framework/**\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Totem/Totem-Prefix.pch";
+				"HEADER_SEARCH_PATHS[arch=*]" = "\"Totem/External/CorePlot_1.1/Source/framework/**\"";
 				INFOPLIST_FILE = "Totem/Totem-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Totem/External/evernote-sdk-ios-master/UnitTests/3rdParty/OCMock\"",
 				);
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -744,13 +812,17 @@
 		5EBB670B16D017270088C9A7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				FRAMEWORK_SEARCH_PATHS = "\"Totem/External/Core_Plot_1.1/Source/framework/**\"";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Totem/Totem-Prefix.pch";
+				"HEADER_SEARCH_PATHS[arch=*]" = "\"Totem/External/CorePlot_1.1/Source/framework/**\"";
 				INFOPLIST_FILE = "Totem/Totem-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/Totem/External/evernote-sdk-ios-master/UnitTests/3rdParty/OCMock\"",
 				);
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

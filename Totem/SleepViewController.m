@@ -40,6 +40,7 @@ double const measurements_per_sec = 4;
     
     //Set threshold
     threshold = 0.01;
+    alert = nil;
     
     // Enabled monitoring of the sensor
     [[UIDevice currentDevice] setProximityMonitoringEnabled:YES];
@@ -62,9 +63,6 @@ double const measurements_per_sec = 4;
     
     timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(listenForMovement:) userInfo:nil repeats:NO];
     allPoints = [[NSMutableArray alloc] init];
-    
-    //[allPoints addObject:[NSNumber numberWithDouble:15]];
-    //[allPoints addObject:[NSNumber numberWithDouble:12]];
     
     [self initalizeGraph];
     
@@ -113,10 +111,10 @@ double const measurements_per_sec = 4;
 - (IBAction)wakeUp{
     [player prepareToPlay];
     [player setVolume: 1.0];
-    //[player setDelegate: self];
+    [player setDelegate: self];
     [player play];
 
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Trigger" message:@"Attempting to Trigger Lucidity" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+    alert = [[UIAlertView alloc] initWithTitle:@"Trigger" message:@"Attempting to Trigger Lucidity" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
     [alert show];
     
 }
@@ -124,6 +122,11 @@ double const measurements_per_sec = 4;
 -(void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex{
     [player stop];
     player.currentTime = 0;
+    alert = nil;
+}
+
+-(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
+    [alert dismissWithClickedButtonIndex:0 animated:YES];
 }
 
 - (void)listenForMovement:(SleepViewController*)view {
@@ -168,9 +171,6 @@ double const measurements_per_sec = 4;
         NSLog(@"Computed Average: %f", average);
         
         [allPoints addObject:[NSNumber numberWithDouble:average]];
-        
-        //[allPoints addObject:[NSNumber numberWithInteger:10]];
-        
         NSLog(@"Supposed to reload data");
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -201,18 +201,36 @@ double const measurements_per_sec = 4;
     
     graph.title = [NSString stringWithFormat:@"All Accelerometer Data from %@", [dateFormatter stringFromDate:[NSDate date]]];
     graph.plotAreaFrame.masksToBorder = NO;
-    graph.paddingLeft = 30;
+    graph.paddingLeft = 40;
     
     
 //    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace*)graph.defaultPlotSpace;
 //    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(0) length:CPTDecimalFromDouble(15)];
 //    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(0) length:CPTDecimalFromDouble(20)];
     
+    //Formats X-Axis
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [formatter setMinimumFractionDigits:1];
+    [formatter setMaximumFractionDigits:2];
+    
     CPTXYAxisSet *axisSet = (CPTXYAxisSet*)_graphView.hostedGraph.axisSet;
     CPTAxis *yAxis = axisSet.yAxis;
-    //yAxis.title = @"Accelerometer Magnitude";
-    //yAxis.minorTickLength = 0.0001;
+    yAxis.labelingPolicy = CPTAxisLabelingPolicyEqualDivisions;
+    yAxis.preferredNumberOfMajorTicks = 6;
+    yAxis.labelFormatter = formatter;
     
+    //Formats Y-Axis
+    formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [formatter setMaximumFractionDigits:0];
+    
+    CPTAxis *xAxis = axisSet.xAxis;
+    xAxis.labelingPolicy = CPTAxisLabelingPolicyEqualDivisions;
+    xAxis.preferredNumberOfMajorTicks = 8;
+    xAxis.labelFormatter = formatter;
+    
+    //Determines the data source of the graph
     CPTScatterPlot *mainPlot = [[CPTScatterPlot alloc] init];
     mainPlot.dataSource = self;
     mainPlot.plotSymbol = [CPTPlotSymbol hexagonPlotSymbol];
@@ -225,6 +243,7 @@ double const measurements_per_sec = 4;
     plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(0) length:CPTDecimalFromInteger(allPoints.count)];
     plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromDouble(0)
                                      length:CPTDecimalFromFloat([[allPoints valueForKeyPath:@"@max.self"] floatValue] * 1.1f)];
+    
     
     [_graphView.hostedGraph reloadData];
 }

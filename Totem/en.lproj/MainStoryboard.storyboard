@@ -232,20 +232,20 @@
                             <constraint firstItem="5Js-WT-YH9" firstAttribute="leading" secondItem="cYd-os-FLY" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="VUC-WH-3AM"/>
                             <constraint firstItem="y6l-q6-y7I" firstAttribute="leading" secondItem="e4u-X9-msN" secondAttribute="leading" type="default" id="VWT-ay-wa9"/>
                             <constraint firstItem="e4u-X9-msN" firstAttribute="top" secondItem="8vf-z6-3yi" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Wv7-Wm-zXI"/>
-                            <constraint firstItem="KCy-Z5-ka2" firstAttribute="leading" secondItem="cYd-os-FLY" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="dMX-mI-iiO"/>
                             <constraint firstItem="5Js-WT-YH9" firstAttribute="top" secondItem="YjH-fc-PQQ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="f80-zC-SpE"/>
                             <constraint firstAttribute="centerX" secondItem="qMF-tl-Rf5" secondAttribute="centerX" type="user" id="fAn-4M-oOW"/>
                             <constraint firstItem="y6l-q6-y7I" firstAttribute="top" secondItem="e4u-X9-msN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="hI2-wR-xfK"/>
                             <constraint firstItem="KCy-Z5-ka2" firstAttribute="top" secondItem="cYd-os-FLY" secondAttribute="top" type="default" id="hrB-Ab-VZx"/>
                             <constraint firstItem="IW0-qR-d35" firstAttribute="leading" secondItem="cYd-os-FLY" secondAttribute="leading" constant="60" id="hwv-ja-qR2"/>
-                            <constraint firstAttribute="trailing" secondItem="KCy-Z5-ka2" secondAttribute="trailing" constant="30" id="iDD-w0-ue8"/>
                             <constraint firstItem="VIg-Wa-xEE" firstAttribute="top" secondItem="5Js-WT-YH9" secondAttribute="bottom" constant="3" type="user" id="jEY-2c-zPt"/>
                             <constraint firstAttribute="bottom" secondItem="qMF-tl-Rf5" secondAttribute="bottom" constant="28" type="user" id="jGN-Ru-hjp"/>
                             <constraint firstItem="8vf-z6-3yi" firstAttribute="top" secondItem="cYd-os-FLY" secondAttribute="top" constant="48" id="kZd-MF-FGf"/>
                             <constraint firstAttribute="bottom" secondItem="KCy-Z5-ka2" secondAttribute="bottom" constant="285" id="lPZ-Gk-6FW"/>
+                            <constraint firstItem="KCy-Z5-ka2" firstAttribute="trailing" secondItem="cYd-os-FLY" secondAttribute="trailing" type="default" id="lct-Rg-Oo2"/>
                             <constraint firstItem="8vf-z6-3yi" firstAttribute="leading" secondItem="e4u-X9-msN" secondAttribute="leading" type="default" id="n0U-ZM-ZU0"/>
                             <constraint firstItem="qMF-tl-Rf5" firstAttribute="top" secondItem="IW0-qR-d35" secondAttribute="bottom" constant="27" type="user" id="odw-rK-zGl"/>
                             <constraint firstAttribute="trailing" secondItem="VIg-Wa-xEE" secondAttribute="trailing" constant="19" id="pJO-eQ-rzj"/>
+                            <constraint firstItem="KCy-Z5-ka2" firstAttribute="leading" secondItem="cYd-os-FLY" secondAttribute="leading" type="default" id="v9o-Re-JSW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IA2-pe-00s"/>
@@ -366,6 +366,54 @@
         <image name="buttonsleeppressed.png" width="162" height="80"/>
         <image name="justhead.png" width="571" height="498"/>
     </resources>
+    <classes>
+        <class className="CPTGraphHostingView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CPTGraphHostingView.h"/>
+        </class>
+        <class className="DreamViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DreamViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="submitDream:"/>
+                <relationship kind="outlet" name="journal" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="InstructionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InstructionViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="MPVolumeView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MPVolumeView.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="SleepViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SleepViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="wakeUp"/>
+                <relationship kind="outlet" name="graphView" candidateClass="CPTGraphHostingView"/>
+                <relationship kind="outlet" name="queueSize" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="rootSumSquare" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="xAxis" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="yAxis" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="zAxis" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="TotemViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TotemViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logoutOfEvernote:" candidateClass="UIButton"/>
+                <relationship kind="action" name="showSettings:"/>
+                <relationship kind="action" name="useEvernote:" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="evernoteSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="logoutButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

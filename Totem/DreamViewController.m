@@ -30,7 +30,7 @@
     
     [_journal becomeFirstResponder];
     _journal.delegate = self;
-	// Do any additional setup after loading the view.
+
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"MM-dd-yyyy";
     [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];

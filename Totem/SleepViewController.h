@@ -19,7 +19,7 @@ FOUNDATION_EXPORT int const queue_size;
 FOUNDATION_EXPORT int const seconds_to_average;
 FOUNDATION_EXPORT double const measurements_per_sec;
 
-@interface SleepViewController : UIViewController <UIAlertViewDelegate, TriggeredArrayDelegate, CPTPlotDataSource> {
+@interface SleepViewController : UIViewController <UIAlertViewDelegate, AVAudioPlayerDelegate, TriggeredArrayDelegate, CPTPlotDataSource> {
     CMMotionManager *motionMangager;
     TriggeredArray *averageAccel;
     TriggeredArray *queue;
@@ -31,6 +31,7 @@ FOUNDATION_EXPORT double const measurements_per_sec;
     NSMutableArray *timeStamps;
     
     double threshold;
+    UIAlertView *alert;
     AVAudioPlayer *player;
 }
 

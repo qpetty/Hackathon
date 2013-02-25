@@ -28,11 +28,12 @@
     [super viewDidLoad];
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"bg-568@2x.png"]];
     
-	// Do any additional setup after loading the view.
+    //Creates the scrollview for the instructions
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     [scrollView setContentSize:CGSizeMake(640/2, 3949/2)];
     scrollView.bounces = NO;
     
+    //Creates the image to later be inserted in a scollview
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"howitworks.png"]];
     [imageView setFrame:CGRectMake(0, 0, 640/2, 3949/2)];
     

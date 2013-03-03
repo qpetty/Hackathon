@@ -15,7 +15,7 @@ FOUNDATION_EXPORT NSString * const dream_journal_name;
 
 extern BOOL PUBLISH_TO_EVERNOTE;
 
-@interface TotemViewController : UIViewController <UIAlertViewDelegate> {
+@interface TotemViewController : UIViewController <UIAlertViewDelegate, InstuctionViewControllerDelegate> {
     EvernoteSession *session;
 }
 

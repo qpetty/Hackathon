@@ -11,34 +11,34 @@
 		03EDC13416D094620081C235 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC13316D094620081C235 /* Default.png */; };
 		03EDC13916D096F50081C235 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC13716D0965A0081C235 /* Default-568h@2x.png */; };
 		03EDC13B16D098630081C235 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC13A16D098630081C235 /* Default@2x.png */; };
-		03EDC13F16D09BA40081C235 /* bg-568@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC13C16D09BA30081C235 /* bg-568@2x.png */; };
-		03EDC14016D09BA40081C235 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC13D16D09BA30081C235 /* bg@2x.png */; };
-		03EDC14116D09BA40081C235 /* justhead.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC13E16D09BA40081C235 /* justhead.png */; };
-		03EDC14916D09F580081C235 /* bardark.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC14616D09F580081C235 /* bardark.png */; };
-		03EDC14A16D09F580081C235 /* barhandle.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC14716D09F580081C235 /* barhandle.png */; };
-		03EDC14B16D09F580081C235 /* barlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC14816D09F580081C235 /* barlight.png */; };
-		03EDC14D16D0FBB00081C235 /* sleep-586@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC14C16D0FBB00081C235 /* sleep-586@2x.png */; };
-		03EDC15016D0FDE20081C235 /* buttonsleepnotpressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC14E16D0FDE20081C235 /* buttonsleepnotpressed.png */; };
-		03EDC15116D0FDE20081C235 /* buttonsleeppressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC14F16D0FDE20081C235 /* buttonsleeppressed.png */; };
-		03EDC15416D0FE3A0081C235 /* buttonimawakenotpressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC15216D0FE3A0081C235 /* buttonimawakenotpressed.png */; };
-		03EDC15516D0FE3A0081C235 /* buttonimawakepressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC15316D0FE3A0081C235 /* buttonimawakepressed.png */; };
-		03EDC15C16D1001A0081C235 /* evernote.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC15616D100190081C235 /* evernote.png */; };
-		03EDC15D16D1001A0081C235 /* flying.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC15716D100190081C235 /* flying.png */; };
-		03EDC15E16D1001A0081C235 /* rem2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC15816D100190081C235 /* rem2.png */; };
-		03EDC15F16D1001A0081C235 /* sleep.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC15916D1001A0081C235 /* sleep.png */; };
-		03EDC16016D1001A0081C235 /* triggerlevel.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC15A16D1001A0081C235 /* triggerlevel.png */; };
-		03EDC16116D1001A0081C235 /* wakeup.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC15B16D1001A0081C235 /* wakeup.png */; };
-		03EDC16416D101A50081C235 /* buttoninstdonenotpressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC16216D101A50081C235 /* buttoninstdonenotpressed.png */; };
-		03EDC16516D101A50081C235 /* buttoninstdonepressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC16316D101A50081C235 /* buttoninstdonepressed.png */; };
-		03EDC16716D10DDE0081C235 /* howitworks.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC16616D10DDE0081C235 /* howitworks.png */; };
 		03EDC16916D11BA10081C235 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03EDC16816D11BA10081C235 /* AVFoundation.framework */; };
-		03EDC16B16D11C600081C235 /* Non, Je Ne Regrette Rien.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC16A16D11C600081C235 /* Non, Je Ne Regrette Rien.mp3 */; };
-		03EDC16D16D12A0F0081C235 /* totemlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 03EDC16C16D12A0F0081C235 /* totemlogo.png */; };
 		03EDC16F16D13ABA0081C235 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03EDC16E16D13AB90081C235 /* MediaPlayer.framework */; };
 		5E3CD9B716D4A63C00206F46 /* GlobalVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3CD9B616D4A63C00206F46 /* GlobalVariables.m */; };
 		5E3ECEDC16D9DCB50014BAF4 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E3ECED916D9DC220014BAF4 /* libCorePlot-CocoaTouch.a */; };
 		5E3ECEDE16D9DE5C0014BAF4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E3ECEDD16D9DE5C0014BAF4 /* QuartzCore.framework */; };
-		5E5CFA5A16D7621E00095A86 /* TriggeredArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E5CFA5916D7621E00095A86 /* TriggeredArray.m */; };
+		5E51B96B16E2E22700BB92D8 /* bardark.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E51B95016E2E22700BB92D8 /* bardark.png */; };
+		5E51B96C16E2E22700BB92D8 /* barhandle.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E51B95116E2E22700BB92D8 /* barhandle.png */; };
+		5E51B96D16E2E22700BB92D8 /* barlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E51B95216E2E22700BB92D8 /* barlight.png */; };
+		5E51B96E16E2E22700BB92D8 /* bg-568@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E51B95316E2E22700BB92D8 /* bg-568@2x.png */; };
+		5E51B96F16E2E22700BB92D8 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E51B95416E2E22700BB92D8 /* bg@2x.png */; };
+		5E51B97016E2E22700BB92D8 /* buttonimawakenotpressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E51B95516E2E22700BB92D8 /* buttonimawakenotpressed.png */; };
+		5E51B97116E2E22700BB92D8 /* buttonimawakepressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E51B95616E2E22700BB92D8 /* buttonimawakepressed.png */; };
+		5E51B97216E2E22700BB92D8 /* buttoninstdonenotpressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E51B95716E2E22700BB92D8 /* buttoninstdonenotpressed.png */; };
+		5E51B97316E2E22700BB92D8 /* buttoninstdonepressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E51B95816E2E22700BB92D8 /* buttoninstdonepressed.png */; };
+		5E51B97416E2E22700BB92D8 /* buttonsleepnotpressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E51B95916E2E22700BB92D8 /* buttonsleepnotpressed.png */; };
+		5E51B97516E2E22700BB92D8 /* buttonsleeppressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E51B95A16E2E22700BB92D8 /* buttonsleeppressed.png */; };
+		5E51B97916E2E22700BB92D8 /* evernote.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E51B95E16E2E22700BB92D8 /* evernote.png */; };
+		5E51B97A16E2E22700BB92D8 /* flying.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E51B95F16E2E22700BB92D8 /* flying.png */; };
+		5E51B97B16E2E22700BB92D8 /* howitworks.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E51B96016E2E22700BB92D8 /* howitworks.png */; };
+		5E51B97C16E2E22700BB92D8 /* justhead.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E51B96116E2E22700BB92D8 /* justhead.png */; };
+		5E51B97D16E2E22700BB92D8 /* rem2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E51B96216E2E22700BB92D8 /* rem2.png */; };
+		5E51B97E16E2E22700BB92D8 /* sleep-586@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E51B96316E2E22700BB92D8 /* sleep-586@2x.png */; };
+		5E51B97F16E2E22700BB92D8 /* sleep.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E51B96416E2E22700BB92D8 /* sleep.png */; };
+		5E51B98116E2E22700BB92D8 /* totemlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E51B96616E2E22700BB92D8 /* totemlogo.png */; };
+		5E51B98216E2E22700BB92D8 /* triggerlevel.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E51B96716E2E22700BB92D8 /* triggerlevel.png */; };
+		5E51B98316E2E22700BB92D8 /* wakeup.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E51B96816E2E22700BB92D8 /* wakeup.png */; };
+		5E51B98416E2E22700BB92D8 /* Non, Je Ne Regrette Rien.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5E51B96A16E2E22700BB92D8 /* Non, Je Ne Regrette Rien.mp3 */; };
+		5EA6D68816E05300001B5A30 /* AccelerometerFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EA6D68716E05300001B5A30 /* AccelerometerFilter.m */; };
 		5EBB66EA16D017260088C9A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EBB66E916D017260088C9A7 /* UIKit.framework */; };
 		5EBB66EC16D017260088C9A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EBB66EB16D017260088C9A7 /* Foundation.framework */; };
 		5EBB66EE16D017260088C9A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EBB66ED16D017260088C9A7 /* CoreGraphics.framework */; };
@@ -88,6 +88,7 @@
 		5EBB685C16D045730088C9A7 /* NSData+EvernoteSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EBB683716D045730088C9A7 /* NSData+EvernoteSDK.m */; };
 		5EBB685D16D045730088C9A7 /* NSDate+EDAMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EBB683916D045730088C9A7 /* NSDate+EDAMAdditions.m */; };
 		5EBB685F16D08EFD0088C9A7 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EBB685E16D08EFC0088C9A7 /* CoreMotion.framework */; };
+		5EFBCD0416E2CC48001EB9C8 /* LucidityMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFBCD0316E2CC48001EB9C8 /* LucidityMonitor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,13 +99,6 @@
 			remoteGlobalIDString = BC9B83470FB8A0A40035D8DA;
 			remoteInfo = "CorePlot-CocoaTouch";
 		};
-		5E3ECEDA16D9DC600014BAF4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5E3ECECB16D9DC160014BAF4 /* CorePlot-CocoaTouch.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = BC9B83460FB8A0A40035D8DA;
-			remoteInfo = "CorePlot-CocoaTouch";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -112,36 +106,36 @@
 		03EDC13316D094620081C235 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		03EDC13716D0965A0081C235 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		03EDC13A16D098630081C235 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
-		03EDC13C16D09BA30081C235 /* bg-568@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-568@2x.png"; sourceTree = "<group>"; };
-		03EDC13D16D09BA30081C235 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
-		03EDC13E16D09BA40081C235 /* justhead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = justhead.png; sourceTree = "<group>"; };
-		03EDC14616D09F580081C235 /* bardark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bardark.png; sourceTree = "<group>"; };
-		03EDC14716D09F580081C235 /* barhandle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barhandle.png; sourceTree = "<group>"; };
-		03EDC14816D09F580081C235 /* barlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barlight.png; sourceTree = "<group>"; };
-		03EDC14C16D0FBB00081C235 /* sleep-586@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sleep-586@2x.png"; sourceTree = "<group>"; };
-		03EDC14E16D0FDE20081C235 /* buttonsleepnotpressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonsleepnotpressed.png; sourceTree = "<group>"; };
-		03EDC14F16D0FDE20081C235 /* buttonsleeppressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonsleeppressed.png; sourceTree = "<group>"; };
-		03EDC15216D0FE3A0081C235 /* buttonimawakenotpressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonimawakenotpressed.png; sourceTree = "<group>"; };
-		03EDC15316D0FE3A0081C235 /* buttonimawakepressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonimawakepressed.png; sourceTree = "<group>"; };
-		03EDC15616D100190081C235 /* evernote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = evernote.png; sourceTree = "<group>"; };
-		03EDC15716D100190081C235 /* flying.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flying.png; sourceTree = "<group>"; };
-		03EDC15816D100190081C235 /* rem2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rem2.png; sourceTree = "<group>"; };
-		03EDC15916D1001A0081C235 /* sleep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sleep.png; sourceTree = "<group>"; };
-		03EDC15A16D1001A0081C235 /* triggerlevel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triggerlevel.png; sourceTree = "<group>"; };
-		03EDC15B16D1001A0081C235 /* wakeup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wakeup.png; sourceTree = "<group>"; };
-		03EDC16216D101A50081C235 /* buttoninstdonenotpressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttoninstdonenotpressed.png; sourceTree = "<group>"; };
-		03EDC16316D101A50081C235 /* buttoninstdonepressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttoninstdonepressed.png; sourceTree = "<group>"; };
-		03EDC16616D10DDE0081C235 /* howitworks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = howitworks.png; sourceTree = "<group>"; };
 		03EDC16816D11BA10081C235 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		03EDC16A16D11C600081C235 /* Non, Je Ne Regrette Rien.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Non, Je Ne Regrette Rien.mp3"; sourceTree = "<group>"; };
-		03EDC16C16D12A0F0081C235 /* totemlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = totemlogo.png; sourceTree = "<group>"; };
 		03EDC16E16D13AB90081C235 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		5E3CD9B516D4A63C00206F46 /* GlobalVariables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalVariables.h; sourceTree = "<group>"; };
 		5E3CD9B616D4A63C00206F46 /* GlobalVariables.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalVariables.m; sourceTree = "<group>"; };
 		5E3ECECB16D9DC160014BAF4 /* CorePlot-CocoaTouch.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "CorePlot-CocoaTouch.xcodeproj"; path = "CorePlot_1.1/Source/framework/CorePlot-CocoaTouch.xcodeproj"; sourceTree = "<group>"; };
 		5E3ECEDD16D9DE5C0014BAF4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		5E5CFA5816D7621E00095A86 /* TriggeredArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriggeredArray.h; sourceTree = "<group>"; };
-		5E5CFA5916D7621E00095A86 /* TriggeredArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriggeredArray.m; sourceTree = "<group>"; };
+		5E51B95016E2E22700BB92D8 /* bardark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bardark.png; sourceTree = "<group>"; };
+		5E51B95116E2E22700BB92D8 /* barhandle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barhandle.png; sourceTree = "<group>"; };
+		5E51B95216E2E22700BB92D8 /* barlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barlight.png; sourceTree = "<group>"; };
+		5E51B95316E2E22700BB92D8 /* bg-568@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-568@2x.png"; sourceTree = "<group>"; };
+		5E51B95416E2E22700BB92D8 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
+		5E51B95516E2E22700BB92D8 /* buttonimawakenotpressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonimawakenotpressed.png; sourceTree = "<group>"; };
+		5E51B95616E2E22700BB92D8 /* buttonimawakepressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonimawakepressed.png; sourceTree = "<group>"; };
+		5E51B95716E2E22700BB92D8 /* buttoninstdonenotpressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttoninstdonenotpressed.png; sourceTree = "<group>"; };
+		5E51B95816E2E22700BB92D8 /* buttoninstdonepressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttoninstdonepressed.png; sourceTree = "<group>"; };
+		5E51B95916E2E22700BB92D8 /* buttonsleepnotpressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonsleepnotpressed.png; sourceTree = "<group>"; };
+		5E51B95A16E2E22700BB92D8 /* buttonsleeppressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonsleeppressed.png; sourceTree = "<group>"; };
+		5E51B95E16E2E22700BB92D8 /* evernote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = evernote.png; sourceTree = "<group>"; };
+		5E51B95F16E2E22700BB92D8 /* flying.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flying.png; sourceTree = "<group>"; };
+		5E51B96016E2E22700BB92D8 /* howitworks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = howitworks.png; sourceTree = "<group>"; };
+		5E51B96116E2E22700BB92D8 /* justhead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = justhead.png; sourceTree = "<group>"; };
+		5E51B96216E2E22700BB92D8 /* rem2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rem2.png; sourceTree = "<group>"; };
+		5E51B96316E2E22700BB92D8 /* sleep-586@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sleep-586@2x.png"; sourceTree = "<group>"; };
+		5E51B96416E2E22700BB92D8 /* sleep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sleep.png; sourceTree = "<group>"; };
+		5E51B96616E2E22700BB92D8 /* totemlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = totemlogo.png; sourceTree = "<group>"; };
+		5E51B96716E2E22700BB92D8 /* triggerlevel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triggerlevel.png; sourceTree = "<group>"; };
+		5E51B96816E2E22700BB92D8 /* wakeup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wakeup.png; sourceTree = "<group>"; };
+		5E51B96A16E2E22700BB92D8 /* Non, Je Ne Regrette Rien.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Non, Je Ne Regrette Rien.mp3"; sourceTree = "<group>"; };
+		5EA6D68616E05300001B5A30 /* AccelerometerFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerometerFilter.h; sourceTree = "<group>"; };
+		5EA6D68716E05300001B5A30 /* AccelerometerFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccelerometerFilter.m; sourceTree = "<group>"; };
 		5EBB66E616D017260088C9A7 /* Totem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Totem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EBB66E916D017260088C9A7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5EBB66EB16D017260088C9A7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -239,6 +233,8 @@
 		5EBB683816D045730088C9A7 /* NSDate+EDAMAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+EDAMAdditions.h"; sourceTree = "<group>"; };
 		5EBB683916D045730088C9A7 /* NSDate+EDAMAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+EDAMAdditions.m"; sourceTree = "<group>"; };
 		5EBB685E16D08EFC0088C9A7 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		5EFBCD0216E2CC48001EB9C8 /* LucidityMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LucidityMonitor.h; sourceTree = "<group>"; };
+		5EFBCD0316E2CC48001EB9C8 /* LucidityMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LucidityMonitor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +263,42 @@
 				5E3ECED916D9DC220014BAF4 /* libCorePlot-CocoaTouch.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		5E51B94F16E2E22700BB92D8 /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				5E51B95016E2E22700BB92D8 /* bardark.png */,
+				5E51B95116E2E22700BB92D8 /* barhandle.png */,
+				5E51B95216E2E22700BB92D8 /* barlight.png */,
+				5E51B95316E2E22700BB92D8 /* bg-568@2x.png */,
+				5E51B95416E2E22700BB92D8 /* bg@2x.png */,
+				5E51B95516E2E22700BB92D8 /* buttonimawakenotpressed.png */,
+				5E51B95616E2E22700BB92D8 /* buttonimawakepressed.png */,
+				5E51B95716E2E22700BB92D8 /* buttoninstdonenotpressed.png */,
+				5E51B95816E2E22700BB92D8 /* buttoninstdonepressed.png */,
+				5E51B95916E2E22700BB92D8 /* buttonsleepnotpressed.png */,
+				5E51B95A16E2E22700BB92D8 /* buttonsleeppressed.png */,
+				5E51B95E16E2E22700BB92D8 /* evernote.png */,
+				5E51B95F16E2E22700BB92D8 /* flying.png */,
+				5E51B96016E2E22700BB92D8 /* howitworks.png */,
+				5E51B96116E2E22700BB92D8 /* justhead.png */,
+				5E51B96216E2E22700BB92D8 /* rem2.png */,
+				5E51B96316E2E22700BB92D8 /* sleep-586@2x.png */,
+				5E51B96416E2E22700BB92D8 /* sleep.png */,
+				5E51B96616E2E22700BB92D8 /* totemlogo.png */,
+				5E51B96716E2E22700BB92D8 /* triggerlevel.png */,
+				5E51B96816E2E22700BB92D8 /* wakeup.png */,
+			);
+			path = Graphics;
+			sourceTree = "<group>";
+		};
+		5E51B96916E2E22700BB92D8 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				5E51B96A16E2E22700BB92D8 /* Non, Je Ne Regrette Rien.mp3 */,
+			);
+			path = Music;
 			sourceTree = "<group>";
 		};
 		5EBB66DD16D017260088C9A7 = {
@@ -313,12 +345,16 @@
 				5EBB671016D018B40088C9A7 /* DreamViewController.m */,
 				5EBB670C16D018300088C9A7 /* SleepViewController.h */,
 				5EBB670D16D018300088C9A7 /* SleepViewController.m */,
-				5E5CFA5816D7621E00095A86 /* TriggeredArray.h */,
-				5E5CFA5916D7621E00095A86 /* TriggeredArray.m */,
+				5EFBCD0216E2CC48001EB9C8 /* LucidityMonitor.h */,
+				5EFBCD0316E2CC48001EB9C8 /* LucidityMonitor.m */,
+				5EA6D68616E05300001B5A30 /* AccelerometerFilter.h */,
+				5EA6D68716E05300001B5A30 /* AccelerometerFilter.m */,
 				5EBB670416D017270088C9A7 /* TotemViewController.h */,
 				5EBB670516D017270088C9A7 /* TotemViewController.m */,
 				5E3CD9B516D4A63C00206F46 /* GlobalVariables.h */,
 				5E3CD9B616D4A63C00206F46 /* GlobalVariables.m */,
+				5E51B94F16E2E22700BB92D8 /* Graphics */,
+				5E51B96916E2E22700BB92D8 /* Music */,
 				5EBB671516D040E20088C9A7 /* External */,
 				5EBB66F016D017260088C9A7 /* Supporting Files */,
 			);
@@ -328,28 +364,6 @@
 		5EBB66F016D017260088C9A7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				03EDC16C16D12A0F0081C235 /* totemlogo.png */,
-				03EDC16A16D11C600081C235 /* Non, Je Ne Regrette Rien.mp3 */,
-				03EDC16616D10DDE0081C235 /* howitworks.png */,
-				03EDC16216D101A50081C235 /* buttoninstdonenotpressed.png */,
-				03EDC16316D101A50081C235 /* buttoninstdonepressed.png */,
-				03EDC15616D100190081C235 /* evernote.png */,
-				03EDC15716D100190081C235 /* flying.png */,
-				03EDC15816D100190081C235 /* rem2.png */,
-				03EDC15916D1001A0081C235 /* sleep.png */,
-				03EDC15A16D1001A0081C235 /* triggerlevel.png */,
-				03EDC15B16D1001A0081C235 /* wakeup.png */,
-				03EDC15216D0FE3A0081C235 /* buttonimawakenotpressed.png */,
-				03EDC15316D0FE3A0081C235 /* buttonimawakepressed.png */,
-				03EDC14E16D0FDE20081C235 /* buttonsleepnotpressed.png */,
-				03EDC14F16D0FDE20081C235 /* buttonsleeppressed.png */,
-				03EDC14C16D0FBB00081C235 /* sleep-586@2x.png */,
-				03EDC14616D09F580081C235 /* bardark.png */,
-				03EDC14716D09F580081C235 /* barhandle.png */,
-				03EDC14816D09F580081C235 /* barlight.png */,
-				03EDC13C16D09BA30081C235 /* bg-568@2x.png */,
-				03EDC13D16D09BA30081C235 /* bg@2x.png */,
-				03EDC13E16D09BA40081C235 /* justhead.png */,
 				03EDC13A16D098630081C235 /* Default@2x.png */,
 				03EDC13316D094620081C235 /* Default.png */,
 				03EDC13116D094570081C235 /* totemicon.png */,
@@ -556,7 +570,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				5E3ECEDB16D9DC600014BAF4 /* PBXTargetDependency */,
 			);
 			name = Totem;
 			productName = Totem;
@@ -579,6 +592,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				English,
 			);
 			mainGroup = 5EBB66DD16D017260088C9A7;
 			productRefGroup = 5EBB66E716D017260088C9A7 /* Products */;
@@ -622,28 +636,28 @@
 				03EDC13416D094620081C235 /* Default.png in Resources */,
 				03EDC13916D096F50081C235 /* Default-568h@2x.png in Resources */,
 				03EDC13B16D098630081C235 /* Default@2x.png in Resources */,
-				03EDC13F16D09BA40081C235 /* bg-568@2x.png in Resources */,
-				03EDC14016D09BA40081C235 /* bg@2x.png in Resources */,
-				03EDC14116D09BA40081C235 /* justhead.png in Resources */,
-				03EDC14916D09F580081C235 /* bardark.png in Resources */,
-				03EDC14A16D09F580081C235 /* barhandle.png in Resources */,
-				03EDC14B16D09F580081C235 /* barlight.png in Resources */,
-				03EDC14D16D0FBB00081C235 /* sleep-586@2x.png in Resources */,
-				03EDC15016D0FDE20081C235 /* buttonsleepnotpressed.png in Resources */,
-				03EDC15116D0FDE20081C235 /* buttonsleeppressed.png in Resources */,
-				03EDC15416D0FE3A0081C235 /* buttonimawakenotpressed.png in Resources */,
-				03EDC15516D0FE3A0081C235 /* buttonimawakepressed.png in Resources */,
-				03EDC15C16D1001A0081C235 /* evernote.png in Resources */,
-				03EDC15D16D1001A0081C235 /* flying.png in Resources */,
-				03EDC15E16D1001A0081C235 /* rem2.png in Resources */,
-				03EDC15F16D1001A0081C235 /* sleep.png in Resources */,
-				03EDC16016D1001A0081C235 /* triggerlevel.png in Resources */,
-				03EDC16116D1001A0081C235 /* wakeup.png in Resources */,
-				03EDC16416D101A50081C235 /* buttoninstdonenotpressed.png in Resources */,
-				03EDC16516D101A50081C235 /* buttoninstdonepressed.png in Resources */,
-				03EDC16716D10DDE0081C235 /* howitworks.png in Resources */,
-				03EDC16B16D11C600081C235 /* Non, Je Ne Regrette Rien.mp3 in Resources */,
-				03EDC16D16D12A0F0081C235 /* totemlogo.png in Resources */,
+				5E51B96B16E2E22700BB92D8 /* bardark.png in Resources */,
+				5E51B96C16E2E22700BB92D8 /* barhandle.png in Resources */,
+				5E51B96D16E2E22700BB92D8 /* barlight.png in Resources */,
+				5E51B96E16E2E22700BB92D8 /* bg-568@2x.png in Resources */,
+				5E51B96F16E2E22700BB92D8 /* bg@2x.png in Resources */,
+				5E51B97016E2E22700BB92D8 /* buttonimawakenotpressed.png in Resources */,
+				5E51B97116E2E22700BB92D8 /* buttonimawakepressed.png in Resources */,
+				5E51B97216E2E22700BB92D8 /* buttoninstdonenotpressed.png in Resources */,
+				5E51B97316E2E22700BB92D8 /* buttoninstdonepressed.png in Resources */,
+				5E51B97416E2E22700BB92D8 /* buttonsleepnotpressed.png in Resources */,
+				5E51B97516E2E22700BB92D8 /* buttonsleeppressed.png in Resources */,
+				5E51B97916E2E22700BB92D8 /* evernote.png in Resources */,
+				5E51B97A16E2E22700BB92D8 /* flying.png in Resources */,
+				5E51B97B16E2E22700BB92D8 /* howitworks.png in Resources */,
+				5E51B97C16E2E22700BB92D8 /* justhead.png in Resources */,
+				5E51B97D16E2E22700BB92D8 /* rem2.png in Resources */,
+				5E51B97E16E2E22700BB92D8 /* sleep-586@2x.png in Resources */,
+				5E51B97F16E2E22700BB92D8 /* sleep.png in Resources */,
+				5E51B98116E2E22700BB92D8 /* totemlogo.png in Resources */,
+				5E51B98216E2E22700BB92D8 /* triggerlevel.png in Resources */,
+				5E51B98316E2E22700BB92D8 /* wakeup.png in Resources */,
+				5E51B98416E2E22700BB92D8 /* Non, Je Ne Regrette Rien.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,19 +706,12 @@
 				5EBB685C16D045730088C9A7 /* NSData+EvernoteSDK.m in Sources */,
 				5EBB685D16D045730088C9A7 /* NSDate+EDAMAdditions.m in Sources */,
 				5E3CD9B716D4A63C00206F46 /* GlobalVariables.m in Sources */,
-				5E5CFA5A16D7621E00095A86 /* TriggeredArray.m in Sources */,
+				5EA6D68816E05300001B5A30 /* AccelerometerFilter.m in Sources */,
+				5EFBCD0416E2CC48001EB9C8 /* LucidityMonitor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		5E3ECEDB16D9DC600014BAF4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "CorePlot-CocoaTouch";
-			targetProxy = 5E3ECEDA16D9DC600014BAF4 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5EBB66F216D017260088C9A7 /* InfoPlist.strings */ = {

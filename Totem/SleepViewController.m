@@ -16,7 +16,8 @@
 
 int const queue_size = 30;
 int const seconds_to_average = 15;
-double const measurements_per_sec = 4;
+double const measurements_per_sec = 15.0;
+//double const measurements_per_sec = 60.0;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,33 +38,30 @@ double const measurements_per_sec = 4;
     NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"Non, Je Ne Regrette Rien" ofType:@"mp3"];
     NSURL *newURL = [[NSURL alloc] initFileURLWithPath: soundFilePath];
     player = [[AVAudioPlayer alloc] initWithContentsOfURL: newURL error: nil];
-    
-    //Set threshold
-    threshold = 0.01;
     alert = nil;
     
-    // Enabled monitoring of the sensor
+    // Enabled monitoring of the proximity sensor
     [[UIDevice currentDevice] setProximityMonitoringEnabled:YES];
 
     // Set up an observer for proximity changes
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sensorStateChange:)
                                                  name:@"UIDeviceProximityStateDidChangeNotification" object:nil];
     
+    //Initialize Accelerometer
+    double sampleRate = 1.0f / measurements_per_sec;
     motionMangager = [[CMMotionManager alloc] init];
+    monitor = [[LucidityMonitor alloc] initWithSampleRateForHighPassFilter:measurements_per_sec cutoffFrequency:5.0];
+    monitor.delegate = self;
     
-    motionMangager.deviceMotionUpdateInterval = 1.0f / measurements_per_sec;
+    motionMangager.deviceMotionUpdateInterval = sampleRate;
     NSLog(@"Motion Update Interval: %lf", motionMangager.deviceMotionUpdateInterval);
     
-    averageAccel = [[TriggeredArray alloc] initWithTriggerIndex:seconds_to_average / motionMangager.deviceMotionUpdateInterval];
-    averageAccel.delegate = self;
-    
-    NSLog(@"Acceleration Trigger: %lf", seconds_to_average / motionMangager.deviceMotionUpdateInterval);
-    queue = [[TriggeredArray alloc] init];
-    
-    
-    timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(listenForMovement:) userInfo:nil repeats:NO];
+    counter = 0;
     allPoints = [[NSMutableArray alloc] init];
     
+    //timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(listenForMovement:) userInfo:nil repeats:NO];
+    
+    [self listenForMovement:self];
     [self initalizeGraph];
     
     // Do any additional setup after loading the view.
@@ -74,8 +72,8 @@ double const measurements_per_sec = 4;
     [[UIDevice currentDevice] setBatteryMonitoringEnabled:YES];
     
     if([[UIDevice currentDevice] batteryState] == UIDeviceBatteryStateUnplugged){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Power" message:@"Please keep the charger connected at night." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
+        UIAlertView *batteryAlert = [[UIAlertView alloc] initWithTitle:@"Power" message:@"Please keep the charger connected at night." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [batteryAlert show];
     }
 }
 
@@ -93,11 +91,16 @@ double const measurements_per_sec = 4;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([[segue identifier] isEqualToString:@"toDream"]) {
-        [[segue destinationViewController] setGraphView:_graphView];
-        [[segue destinationViewController] setAccelData:allPoints];
+- (IBAction)awake:(id)sender {
+    
+    if ([[GlobalVariables sharedInstance] PUBLISH_TO_EVERNOTE]) {
+        DreamViewController *next = [[self storyboard] instantiateViewControllerWithIdentifier:@"DreamInput"];
+        [next setGraphView:_graphView];
+        [next setAccelData:allPoints];
+        [[self navigationController] pushViewController:next animated:YES];
     }
+    else
+        [[self navigationController] popToRootViewControllerAnimated:YES];
 }
 
 - (void)sensorStateChange:(NSNotificationCenter *)notification {
@@ -107,6 +110,10 @@ double const measurements_per_sec = 4;
         NSLog(@"Device is ~not~ closer to user.");
 }
 
+- (void)userIsInHightenedAwarenessState:(LucidityMonitor *)monitor{
+    NSLog(@"Felt something");
+    //[self wakeUp];
+}
 
 - (IBAction)wakeUp{
     [player prepareToPlay];
@@ -132,20 +139,21 @@ double const measurements_per_sec = 4;
 - (void)listenForMovement:(SleepViewController*)view {
     [motionMangager startDeviceMotionUpdatesToQueue:[[NSOperationQueue alloc] init] withHandler:^(CMDeviceMotion *motion, NSError *error) {
         double scale = 1000;
-        double xsqr = motion.userAcceleration.x * motion.userAcceleration.x * scale;
-        double ysqr = motion.userAcceleration.y * motion.userAcceleration.y * scale;
-        double zsqr = motion.userAcceleration.z * motion.userAcceleration.z * scale;
         
-        double xyz = sqrt(xsqr * ysqr * zsqr);
+        [monitor addAcceleration:motion.userAcceleration];
         
-        [averageAccel addObject:[NSNumber numberWithDouble:xyz]];
+        double xyz = Norm(monitor.x, monitor.y, monitor.z) * sqrt(scale);
         
-        //if (queue.count > queue_size){
-        //[queue removeObjectAtIndex:0];
-        
-        //Full queue
-        
-        //}
+        counter++;
+        if (counter >= measurements_per_sec) {
+            [allPoints addObject:[NSNumber numberWithDouble:monitor.lastAverage * scale]];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self reloadGraph];
+                _queueSize.text = [NSString stringWithFormat:@"Last Average Computed: %f", monitor.lastAverage * 1000];
+            });
+            counter = 0;
+        }
         
         dispatch_async(dispatch_get_main_queue(), ^{
             
@@ -154,41 +162,10 @@ double const measurements_per_sec = 4;
             _zAxis.text = [NSString stringWithFormat:@"%@%f", @"z= ", motion.userAcceleration.z ];
             
             _rootSumSquare.text = [NSString stringWithFormat:@"%@%f", @"root sum square= ", xyz];
-            //NSLog(@"%@", _yAxis.text);
         });
     }];
 }
-             
--(void)arrayHasBeenTriggered:(TriggeredArray *)triggerEmptyArray hitTriggerIndex:(NSMutableArray *)array{
-    if (triggerEmptyArray == averageAccel) {
-        double average = 0;
-        
-        for (NSNumber *num in array)
-            average += [num doubleValue];
-        
-        average = average / array.count;
-        //[queue addObject:[NSNumber numberWithDouble:average]];
-        NSLog(@"Computed Average: %f", average);
-        
-        [allPoints addObject:[NSNumber numberWithDouble:average]];
-        NSLog(@"Supposed to reload data");
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self reloadGraph];
-            _queueSize.text = [NSString stringWithFormat:@"Last Average Computed: %f", average];
-        });
-        
-//        if(average > threshold){
-//            [timeStamps addObject:[NSNumber numberWithFloat:timer]];
-//            if (timeStamps.count < 3)
-//                timer = 0;
-//            else
-//                [self wakeUp];
-    }
-    else if (triggerEmptyArray == queue){
-        ;
-    }
-}
+
 
 - (void)initalizeGraph{
     [_graphView setBackgroundColor:[UIColor lightGrayColor]];
@@ -251,17 +228,17 @@ double const measurements_per_sec = 4;
 #pragma mark - CPTPlotDataSource methods
 
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot {
-    NSLog(@"Called numberOfRecordsForPlot and returned %d", allPoints.count);
+    //NSLog(@"Called numberOfRecordsForPlot and returned %d", allPoints.count);
     return allPoints.count;
 }
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index {
     if (fieldEnum == CPTScatterPlotFieldX) {
-        NSLog(@"Called numberForPlot for X and returned %d", index);
+        //NSLog(@"Called numberForPlot for X and returned %d", index);
         return [NSNumber numberWithInteger:index];
     }
     else if (fieldEnum == CPTScatterPlotFieldY){
-        NSLog(@"Called numberForPlot for Y and returned %@", [allPoints objectAtIndex:index]);
+        //NSLog(@"Called numberForPlot for Y and returned %@", [allPoints objectAtIndex:index]);
         return [allPoints objectAtIndex:index];
     }
     return nil;

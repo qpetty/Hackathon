@@ -45,18 +45,18 @@ NSString * const dream_journal_name = @"Totem Dream Journal";
 }
 
 -(IBAction)showSettings:(id)sender{
-    InstructionViewController *instruction =[[InstructionViewController alloc] init];
-                                
+    InstructionViewController *instruction =[[self storyboard] instantiateViewControllerWithIdentifier:@"instructions"];
+
     instruction.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    self.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    [self presentViewController:[[InstructionViewController alloc] init] animated:YES completion:nil];
+    instruction.delegate = self;
+    [self presentViewController:instruction animated:YES completion:nil];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([[segue identifier] isEqualToString:@"instructions"]) {
-        [[segue destinationViewController] setDelegate:self];
-    }
-}
+//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+//    if ([[segue identifier] isEqualToString:@"instructions"]) {
+//        [[segue destinationViewController] setDelegate:self];
+//    }
+//}
 
 -(void)finishedInstructions:(InstructionViewController *)controller{
     [self dismissViewControllerAnimated:YES completion:nil];

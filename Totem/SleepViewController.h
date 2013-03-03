@@ -11,28 +11,24 @@
 #import <AVFoundation/AVFoundation.h>
 #import "DreamViewController.h"
 #import "EvernoteSDK.h"
-#import "TriggeredArray.h"
-
+#import "LucidityMonitor.h"
 #import "CorePlot-CocoaTouch.h"
 
 FOUNDATION_EXPORT int const queue_size;
 FOUNDATION_EXPORT int const seconds_to_average;
 FOUNDATION_EXPORT double const measurements_per_sec;
 
-@interface SleepViewController : UIViewController <UIAlertViewDelegate, AVAudioPlayerDelegate, TriggeredArrayDelegate, CPTPlotDataSource> {
+@interface SleepViewController : UIViewController <UIAlertViewDelegate, AVAudioPlayerDelegate, CPTPlotDataSource, LucidityMonitorDelegate> {
     CMMotionManager *motionMangager;
-    TriggeredArray *averageAccel;
-    TriggeredArray *queue;
+    UIAlertView *alert;
+    AVAudioPlayer *player;
+    LucidityMonitor *monitor;
     
     NSMutableArray *allPoints;
     
-    
     NSTimer *timer;
-    NSMutableArray *timeStamps;
     
-    double threshold;
-    UIAlertView *alert;
-    AVAudioPlayer *player;
+    int counter;
 }
 
 @property (weak, nonatomic) IBOutlet UILabel *xAxis;
@@ -45,6 +41,7 @@ FOUNDATION_EXPORT double const measurements_per_sec;
 
 - (void)initalizeGraph;
 - (void)reloadGraph;
+- (IBAction)awake:(id)sender;
 
 - (void)sensorStateChange:(NSNotificationCenter *)notification;
 

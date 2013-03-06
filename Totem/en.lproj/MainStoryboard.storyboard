@@ -277,20 +277,66 @@
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1V-nC-IxS">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="F1V-nC-IxS">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RRb-iI-XMx">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="63" id="4ph-pE-fer"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Done" backgroundImage="buttonimawakenotpressed.png">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" backgroundImage="buttonimawakepressed.png">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitDream:" destination="uMc-f6-TO9" eventType="touchUpInside" id="J3o-u9-X1F"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0A-4s-hl8">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="BFb-Tn-VaH"/>
+                                    <constraint firstAttribute="width" constant="68" id="ll5-eD-lzS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Cancel" backgroundImage="buttonimawakenotpressed.png">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" backgroundImage="buttonimawakepressed.png">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="exit:" destination="uMc-f6-TO9" eventType="touchUpInside" id="XpT-Ux-pIQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ynj-yN-V23" firstAttribute="top" secondItem="F1V-nC-IxS" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="QIt-4D-VNm"/>
+                            <constraint firstItem="ynj-yN-V23" firstAttribute="top" secondItem="b0A-4s-hl8" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="1Uo-Q8-pnr"/>
+                            <constraint firstItem="RRb-iI-XMx" firstAttribute="top" secondItem="r6G-tV-bKl" secondAttribute="top" type="default" id="BUC-xS-1nM"/>
+                            <constraint firstItem="F1V-nC-IxS" firstAttribute="leading" secondItem="b0A-4s-hl8" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Bbt-Xl-LUG"/>
+                            <constraint firstItem="b0A-4s-hl8" firstAttribute="leading" secondItem="r6G-tV-bKl" secondAttribute="leading" type="default" id="Bkc-0t-0i0"/>
+                            <constraint firstItem="F1V-nC-IxS" firstAttribute="top" secondItem="r6G-tV-bKl" secondAttribute="top" constant="7" id="LWe-J6-skY"/>
+                            <constraint firstItem="RRb-iI-XMx" firstAttribute="baseline" secondItem="b0A-4s-hl8" secondAttribute="baseline" type="default" id="LiM-Qp-OrI"/>
+                            <constraint firstItem="RRb-iI-XMx" firstAttribute="leading" secondItem="F1V-nC-IxS" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="QCR-ml-MGe"/>
+                            <constraint firstItem="b0A-4s-hl8" firstAttribute="top" secondItem="r6G-tV-bKl" secondAttribute="top" type="default" id="TL8-xc-iJF"/>
                             <constraint firstItem="ynj-yN-V23" firstAttribute="leading" secondItem="r6G-tV-bKl" secondAttribute="leading" type="default" id="ULK-Pf-eiA"/>
-                            <constraint firstItem="F1V-nC-IxS" firstAttribute="leading" secondItem="r6G-tV-bKl" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="WMJ-O8-fvC"/>
-                            <constraint firstItem="F1V-nC-IxS" firstAttribute="top" secondItem="r6G-tV-bKl" secondAttribute="top" constant="15" id="pVy-4b-hQ0"/>
+                            <constraint firstItem="ynj-yN-V23" firstAttribute="top" secondItem="RRb-iI-XMx" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="bYZ-s3-Rjo"/>
+                            <constraint firstItem="RRb-iI-XMx" firstAttribute="trailing" secondItem="r6G-tV-bKl" secondAttribute="trailing" type="default" id="d1e-3P-WjS"/>
                             <constraint firstItem="ynj-yN-V23" firstAttribute="trailing" secondItem="r6G-tV-bKl" secondAttribute="trailing" type="default" id="uGs-HX-gey"/>
                         </constraints>
                     </view>
@@ -366,6 +412,56 @@
         <image name="buttonsleeppressed.png" width="162" height="80"/>
         <image name="justhead.png" width="571" height="498"/>
     </resources>
+    <classes>
+        <class className="CPTGraphHostingView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CPTGraphHostingView.h"/>
+        </class>
+        <class className="DreamViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DreamViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="exit:"/>
+                <relationship kind="action" name="submitDream:"/>
+                <relationship kind="outlet" name="journal" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="InstructionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InstructionViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="MPVolumeView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MPVolumeView.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="SleepViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SleepViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="awake:"/>
+                <relationship kind="action" name="wakeUp"/>
+                <relationship kind="outlet" name="graphView" candidateClass="CPTGraphHostingView"/>
+                <relationship kind="outlet" name="queueSize" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="rootSumSquare" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="xAxis" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="yAxis" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="zAxis" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="TotemViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TotemViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logoutOfEvernote:" candidateClass="UIButton"/>
+                <relationship kind="action" name="showSettings:"/>
+                <relationship kind="action" name="useEvernote:" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="evernoteSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="logoutButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

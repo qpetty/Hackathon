@@ -15,11 +15,21 @@
 - (void)userIsInHightenedAwarenessState:(LucidityMonitor *)monitor;
 @end
 
+typedef enum {
+    userIsAwake,
+    userIsAsleep,
+    userIsReadyToBeAwakened
+}userState;
+
 @interface LucidityMonitor : NSObject {
     HighpassFilter *filter;
     NSTimer *timer;
     NSMutableArray *lastDataPoints;
     
+    int awakeningNumber;
+    NSMutableArray *timeOfAwakenings;
+    
+    userState userStatus;
     double x,y,z, lastAverage, numbersToAverage;
 }
 
@@ -33,7 +43,7 @@
 -(id)initWithSampleRateForHighPassFilter:(double)rate cutoffFrequency:(double)freq;
 -(id)initWithHighPassFilter:(HighpassFilter*)highPassFilter;
 
+-(void)startSleepCycle;
 -(void)addAcceleration:(CMAcceleration)accel;
--(void)addLastDataToArray;
 
 @end

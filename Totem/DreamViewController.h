@@ -32,7 +32,7 @@
 
 
 - (IBAction)submitDream:(id)sender;
-
+- (IBAction)exit:(id)sender;
 
 //Evernote Methods
 
@@ -44,7 +44,6 @@
 
 //Creates a new Totem Dream Journal Notebook and creates a note in it
 - (void)createNotebookWithNote:(NSString*)title content:(NSString*)toEvernote;
-
 
 //Methods to send graph to Evernote
 

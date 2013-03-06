@@ -28,6 +28,8 @@
     [super viewDidLoad];
     self.view.backgroundColor = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"bg-568@2x.png"]];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardAppeared:) name:UIKeyboardDidShowNotification object:nil];
+    
     [_journal becomeFirstResponder];
     _journal.delegate = self;
 
@@ -52,14 +54,22 @@
 }
 
 
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    
-    if([text isEqualToString:@"\n"]) {
-        [self submitDream:self];
-        return NO;
-    }
-    
-    return YES;
+//- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+//    
+//    if([text isEqualToString:@"\n"]) {
+//        [self submitDream:self];
+//        return NO;
+//    }
+//    
+//    return YES;
+//}
+
+- (void)keyboardAppeared:(NSNotification*)notification
+{
+    NSDictionary* keyboardInfo = [notification userInfo];
+    NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+    CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
+    _journal.frame = CGRectMake(_journal.frame.origin.x, _journal.frame.origin.y, _journal.frame.size.width, _journal.superview.frame.size.height - _journal.frame.origin.y * 1.1 - keyboardFrameBeginRect.size.height);
 }
 
 - (NSData *) imageFromView:(UIView *)view {
@@ -94,8 +104,11 @@
     return imageResource;
 }
 
+- (IBAction)exit:(id)sender{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 
-- (IBAction)submitDream:(id)sender {
+- (IBAction)submitDream:(id)sender{
 
     NSLog(@"%d",[[GlobalVariables sharedInstance] PUBLISH_TO_EVERNOTE]);
     
@@ -111,8 +124,13 @@
         }
         
         //Create Evernote XML
-        NSString *content = _journal.text;
-        NSString *toEvernote = [[NSString alloc] initWithFormat:@"<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE en-note SYSTEM \"http://xml.evernote.com/pub/enml2.dtd\"><en-note>\n%@%@\n</en-note>", content, imageTag];
+        NSString *paragraphBegin = @"<div>";
+        NSString *paragraphEnd = @"</div>";
+        //NSString *content = _journal.text;
+        NSString *content = [_journal.text stringByReplacingOccurrencesOfString:@"\n" withString:[[NSString alloc] initWithFormat:@"%@%@", paragraphEnd,paragraphBegin]];
+        
+        content = [content stringByReplacingOccurrencesOfString:[paragraphBegin stringByAppendingString:paragraphEnd] withString:@"<br />"];
+        NSString *toEvernote = [[NSString alloc] initWithFormat:@"<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE en-note SYSTEM \"http://xml.evernote.com/pub/enml2.dtd\"><en-note>\n%@%@%@%@\n</en-note>",paragraphBegin, content, paragraphEnd, imageTag];
         
         [[EvernoteNoteStore noteStore] getNotebookWithGuid:notebookgui success:^(EDAMNotebook *notebook) {
             NSLog(@"Success here %@",notebookgui);
@@ -124,7 +142,7 @@
         
         NSLog(@"Notebook used: %@",notebookgui);
     }
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self exit:nil];
 }
 
 -(void)addNote:(NSString *)notebookGuiForNote title:(NSString *)noteTitle content:(NSString *)toEvernote{

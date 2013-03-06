@@ -9,6 +9,7 @@
 #import "LucidityMonitor.h"
 
 #define motionPercentIncrease 100
+#define timeWithoutMotionToDetectSleep 15
 
 @implementation LucidityMonitor
 
@@ -20,7 +21,11 @@
         filter.adaptive = YES;
         
         lastDataPoints = [[NSMutableArray alloc] init];
+        awakeningNumber = 0;
+        timeOfAwakenings = [[NSMutableArray alloc] initWithObjects:[NSNumber numberWithDouble:20],[NSNumber numberWithDouble:15],[NSNumber numberWithDouble:20], [NSNumber numberWithDouble:15],[NSNumber numberWithDouble:10], nil];
+        
         numbersToAverage = rate;
+        userStatus = userIsAwake;
         return self;
     }
     else
@@ -32,11 +37,36 @@
         filter = highPassFilter;
         
         lastDataPoints = [[NSMutableArray alloc] init];
+        awakeningNumber = 0;
+        timeOfAwakenings = [[NSMutableArray alloc] initWithObjects:[NSNumber numberWithDouble:20],[NSNumber numberWithDouble:15],[NSNumber numberWithDouble:20], [NSNumber numberWithDouble:15],[NSNumber numberWithDouble:10], nil];
+        
         numbersToAverage = filter.sampleRate;
+        userStatus = userIsAwake;
         return self;
     }
     else
         return self;
+}
+
+-(void)startSleepCycle{
+    timer = [NSTimer scheduledTimerWithTimeInterval:(NSTimeInterval)timeWithoutMotionToDetectSleep target:self selector:@selector(userIsAsleep:) userInfo:nil repeats:NO];
+}
+
+-(void)userIsAsleep:(NSTimer*)theTimer{
+    [timer invalidate];
+    userStatus = userIsAsleep;
+    NSLog(@"User is asleep");
+    
+    //Sets the timer for the next awakening
+    if (awakeningNumber < timeOfAwakenings.count) {
+        timer = [NSTimer scheduledTimerWithTimeInterval:[[timeOfAwakenings objectAtIndex:awakeningNumber] doubleValue] target:self selector:@selector(nextMovementWillAwakeUser:) userInfo:nil repeats:NO];
+        awakeningNumber++;
+    }
+}
+
+-(void)nextMovementWillAwakeUser:(NSTimer*)theTimer{
+    NSLog(@"Next Movement should awkaen user");
+    userStatus = userIsReadyToBeAwakened;
 }
 
 -(void)addAcceleration:(CMAcceleration)accel{
@@ -47,6 +77,7 @@
     [self addLastDataToArray];
 }
 
+//Add data point to the lastDataArray and averages all the numbers in the array if the array size reaches numbersToAverage
 - (void)addLastDataToArray{
     double average = 0;
     
@@ -60,9 +91,27 @@
         //NSLog(@"Computed Average: %f", average);
         
         if ((average - lastAverage) / lastAverage >= motionPercentIncrease / 100)
-            [self.delegate userIsInHightenedAwarenessState:self];
+            [self movementSensed];
         lastAverage = average;
     }
+}
+
+-(void)movementSensed{
+    if (userStatus == userIsReadyToBeAwakened) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.delegate userIsInHightenedAwarenessState:self];
+            [self userIsAsleep:nil];
+        });
+    }
+    else if (userStatus == userIsAwake){
+        NSLog(@"Reset Timer");
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [timer invalidate];
+            timer = [NSTimer scheduledTimerWithTimeInterval:timeWithoutMotionToDetectSleep target:self selector:@selector(userIsAsleep:) userInfo:nil repeats:NO];
+        });
+    }
+    else
+        NSLog(@"User moved but we are not triggering yet");
 }
 
 @end

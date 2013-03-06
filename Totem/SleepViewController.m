@@ -52,7 +52,9 @@ double const measurements_per_sec = 15.0;
     motionMangager = [[CMMotionManager alloc] init];
     monitor = [[LucidityMonitor alloc] initWithSampleRateForHighPassFilter:measurements_per_sec cutoffFrequency:5.0];
     monitor.delegate = self;
+    [monitor startSleepCycle];
     
+    //TODO: move all accelerometer info to Lucidity Monitor
     motionMangager.deviceMotionUpdateInterval = sampleRate;
     NSLog(@"Motion Update Interval: %lf", motionMangager.deviceMotionUpdateInterval);
     
@@ -84,7 +86,7 @@ double const measurements_per_sec = 15.0;
 }
 
 -(void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:YES];
+    [super viewDidDisappear:animated];
     [motionMangager stopDeviceMotionUpdates];
     [player stop];
     [[UIDevice currentDevice] setProximityMonitoringEnabled:NO];
@@ -112,7 +114,7 @@ double const measurements_per_sec = 15.0;
 
 - (void)userIsInHightenedAwarenessState:(LucidityMonitor *)monitor{
     NSLog(@"Felt something");
-    //[self wakeUp];
+    [self wakeUp];
 }
 
 - (IBAction)wakeUp{
@@ -138,10 +140,11 @@ double const measurements_per_sec = 15.0;
 
 - (void)listenForMovement:(SleepViewController*)view {
     [motionMangager startDeviceMotionUpdatesToQueue:[[NSOperationQueue alloc] init] withHandler:^(CMDeviceMotion *motion, NSError *error) {
-        double scale = 1000;
         
         [monitor addAcceleration:motion.userAcceleration];
         
+        //Everything below here is for graph and labels
+        double scale = 1000;
         double xyz = Norm(monitor.x, monitor.y, monitor.z) * sqrt(scale);
         
         counter++;
